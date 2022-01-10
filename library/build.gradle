@@ -1,0 +1,16 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+apply from: "${rootDir}/configs/tools/gradle/library.gradle"
+apply from: "${rootDir}/configs/tools/publish/publish.gradle"
+
+
+dependencies {
+    implementation depK.core
+    implementation depX.appcompat
+    implementation depX.material
+    implementation kennieX.i18n
+    implementation kennieX.res
+}
