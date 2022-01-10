@@ -1,11 +1,11 @@
-# AndroidLibraryTemplate
+# KennieAKit
 
 <p align="center"><img src="./resources/screenshots/logo.png" width="20%"/></p>
 
 <p align="center">
-    <strong>Android Library 模板库</strong>
+    <strong>KennieAKit 模板库</strong>
     <br>
-    <a href="https://kennielab.github.io/KennieLibTemplate/">使用文档</a>
+    <a href="https://kennielab.github.io/KennieAKit/">使用文档</a>
     <br>
 </p>
 
@@ -19,9 +19,9 @@
 
 ## 简介
 
-Android Library 模板库
+KennieAKit 模板库
 
-如有任何疑问或者Bug，请在 github 上公开讨论[技术问题](https://github.com/kennielab/KennieLetterIndexBar/issues)
+如有任何疑问或者Bug，请在 github 上公开讨论[技术问题](https://github.com/kennielab/KennieAKit/issues)
 
 **开源不易，如果喜欢的话希望给个 `Star` 或 `Fork` ^_^ ，谢谢~~**
 
@@ -48,7 +48,7 @@ Android Library 模板库
 
 
 ## 开始使用
-因为依赖的关系，KennieLibTemplate 目前仅支持 AndroidX 作为基础进行开发，若您正在使用最新版本的 Android Studio，那么默认创建的项目就是使用 AndroidX 作为底层框架的。
+因为依赖的关系，KennieAKit 目前仅支持 AndroidX 作为基础进行开发，若您正在使用最新版本的 Android Studio，那么默认创建的项目就是使用 AndroidX 作为底层框架的。
 > **使用前请查看注意事项**，当前版本仅支持AndroidX
 
 ### 📥引入
@@ -57,7 +57,7 @@ Android Library 模板库
 
 <div>
 
-Latest Version：[![](https://jitpack.io/v/kennielab/KennieLibTemplate.svg)](https://jitpack.io/#kennielab/KennieLibTemplate)
+Latest Version：[![](https://jitpack.io/v/kennielab/KennieAKit.svg)](https://jitpack.io/#kennielab/KennieAKit)
 
 1) 在 project 的 build.gradle 文件中找到 `allprojects{}` 代码块添加以下代码：
 
@@ -77,12 +77,12 @@ allprojects {
 
 ```
 def lib = "0.0.2"
-implementation "com.github.kennielab:KennieLibTemplate:${lib}"
+implementation "com.github.kennielab:KennieAKit:${lib}"
 ```
 
 ### Wiki使用
 
-具体的使用说明，请参阅 [DOC](https://kennielab.github.io/KennieLibTemplate/)
+具体的使用说明，请参阅 [DOC](https://kennielab.github.io/KennieAKit/)
 
 ## 更新日志
 - [详细日志](./UPDATELOG.md)

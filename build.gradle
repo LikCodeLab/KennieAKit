@@ -12,6 +12,7 @@ buildscript {
         maven { url 'https://jitpack.io' }
         google()
         mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.3"
