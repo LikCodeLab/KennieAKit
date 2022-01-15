@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+/*
+ * Copyright (c) 2021 Kennie<xdpvxv@163.com>
+ *
+ * The software is licensed under the Mulan PSL v2.
+ * You can use this software according to the terms and conditions of the Mulan PSL v2.
+ * You may obtain a copy of Mulan PSL v2 at:
+ *     http://license.coscl.org.cn/MulanPSL2
+ * THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR
+ * PURPOSE.
+ * See the Mulan PSL v2 for more details.
+ */
+-->
+<resources>
+
+    <!-- ********************App样式引用常用的颜色******************** -->
+
+    <!-- 应用的主色 Toolbar 默认使用该颜色 -->
+    <color name="_res_app_default_primary">@color/_res_white</color>
+    <color name="_res_app_default_primary_green">#02c684</color>
+    <!-- 应用的主要暗色调，状态栏默认使用该颜色 -->
+    <color name="_res_app_default_primary_dark">@color/_res_app_default_black</color>
+    <color name="_res_app_default_primary_dark_green">#02c684</color>
+    <!-- 应用的强调色，CheckBox RadioButton Switch 等一般控件的选中效果默认采用该颜色 -->
+    <color name="_res_app_default_accent">#5A8DDF</color>
+    <color name="_res_app_default_accent_green">#2ad181</color>
+    <!-- 默认文本颜色，Button、TextView 的文字颜色 -->
+    <color name="_res_app_default_text">#333333</color>
+    <!-- 默认提示颜色，Button、TextView 的提示文字颜色 -->
+    <color name="_res_app_default_text_hint">@color/_res_panda</color>
+
+    <!--窗口背景颜色 -->
+    <color name="_res_app_default_windows_background">@color/_res_app_gray2</color>
+    <!--分割线的颜色 -->
+    <color name="_res_app_default_line">#ECECEC</color>
+
+
+
+    <!--通常用于按钮及修饰元素 -->
+    <color name="_res_app_default_green">#009688</color>
+    <!--一般用于选中状态 -->
+    <color name="_res_app_default_light_green">#5FB878</color>
+    <!--通常用于导航 -->
+    <color name="_res_app_default_black">#393D49</color>
+    <!--比较适合一些鲜艳色系的页面 -->
+    <color name="_res_app_default_blue">#1E9FFF</color>
+    <!--暖色系，一般用于提示性元素 -->
+    <color name="_res_app_default_orange">#F7B824</color>
+    <!--比较引人注意的颜色 -->
+    <color name="_res_app_default_red">#FF5722</color>
+    <!--侧边或底部普遍采用的颜色 -->
+    <color name="_res_app_default_dark">#2F4056</color>
+    <!--用于文字着色，如链接文本 -->
+    <color name="_res_app_default_dark_blue">#01AAED</color>
+
+
+    <!-- 按钮按压时的颜色 -->
+    <color name="_res_app_default_button_pressed">#AA5A8DDF</color>
+    <!-- 按钮禁用时的颜色 -->
+    <color name="_res_app_default_button_disable">#BBBBBB</color>
+
+
+    <!-- 矢量图标的颜色 -->
+    <color name="_res_app_default_icon_color">#7C7C7C</color>
+
+    <color name="_res_app_default_swipeRefreshLayout_1">#ffe7b404</color>
+    <color name="_res_app_default_swipeRefreshLayout_2">#ffEA4335</color>
+    <color name="_res_app_default_swipeRefreshLayout_3">#ff34A853</color>
+    <color name="_res_app_default_swipeRefreshLayout_4">#ffFBBC05</color>
+    <color name="_res_app_default_info">#000000</color>
+    <color name="_res_app_default_confirm">#CC4caf50</color>
+    <color name="_res_app_default_warning">#CCdd8500</color>
+    <color name="_res_app_default_error">#CCFF0000</color>
+    <color name="_res_app_default_default">#ffaaaaaa</color>
+
+    <!-- 一般用于背景、边框 -->
+    <color name="_res_app_gray0">#FBFBFB</color>
+    <color name="_res_app_gray1">#F2F2F2</color>
+    <color name="_res_app_gray2">#F4F4F4</color>
+    <color name="_res_app_gray3">#EEEEEE</color>
+    <color name="_res_app_gray4">#E2E2E2</color>
+    <color name="_res_app_gray5">#DDDDDD</color>
+    <color name="_res_app_gray6">#D2D2D2</color>
+    <color name="_res_app_gray7">#C2C2C2</color>
+
+    <color name="_res_app_gray_light">#cdcdcd</color>
+    <color name="_res_app_gray">#999999</color>
+    <color name="_res_app_gray_deep">#666666</color>
+    <color name="_res_app_gray_dark">#333333</color>
+
+
+</resources>

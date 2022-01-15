@@ -4,15 +4,16 @@ plugins {
 }
 
 apply from: "${rootDir}/configs/tools/gradle/library.gradle"
+apply from: "${rootDir}/configs/tools/publish/publish.gradle"
 
 android {
-
     defaultConfig {
-        versionCode 1
-        versionName "0.0.1"
+        versionCode 7
+        versionName '0.0.7'
+        resourcePrefix '_res'
     }
 }
 
 dependencies {
-    api kennieX.res
+    implementation depX.material
 }

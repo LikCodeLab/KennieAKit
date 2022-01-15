@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <!-- 默认圆角按钮样式 -->
+    <style name="_res_Btn_RoundBlue_Style" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:paddingStart">@dimen/_res_dp_20</item>
+        <item name="android:paddingEnd">@dimen/_res_dp_20</item>
+        <item name="android:paddingTop">@dimen/_res_dp_8</item>
+        <item name="android:paddingBottom">@dimen/_res_dp_8</item>
+        <item name="android:textSize">@dimen/_res_sp_14</item>
+        <item name="android:textColor">@color/_res_white90</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/_res_btn_round_blue_selector</item>
+        <item name="android:foreground">@null</item>
+    </style>
+
+    <!-- 直角按钮样式 -->
+    <style name="_res_Btn_RectBlue_Style" parent="_res_Btn_RoundBlue_Style">
+        <item name="android:paddingStart">@dimen/_res_dp_10</item>
+        <item name="android:paddingEnd">@dimen/_res_dp_10</item>
+        <item name="android:paddingTop">@dimen/_res_dp_5</item>
+        <item name="android:paddingBottom">@dimen/_res_dp_5</item>
+        <item name="android:background">@drawable/_res_btn_rect_blue_selector</item>
+    </style>
+
+    <!-- 边框按钮样式(默认 蓝色) -->
+    <style name="_res_Btn_RoundBorderBlue_Style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/_res_border_round_blue_selector</item>
+        <item name="android:layout_marginStart">@dimen/_res_dp_15</item>
+        <item name="android:layout_marginEnd">@dimen/_res_dp_15</item>
+        <item name="android:paddingStart">@dimen/_res_dp_10</item>
+        <item name="android:paddingEnd">@dimen/_res_dp_10</item>
+        <item name="android:paddingTop">@dimen/_res_dp_10</item>
+        <item name="android:paddingBottom">@dimen/_res_dp_10</item>
+        <item name="android:minWidth">@dimen/_res_dp_90</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@drawable/_res_border_text_round_blue_selector</item>
+        <item name="android:textSize">@dimen/_res_sp_12</item>
+    </style>
+	
+</resources>
