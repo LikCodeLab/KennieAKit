@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- LKCountDownTextView(验证码倒计时) -->
+    <string name="_countdown_textview_apply">%1$d %2$s</string>
+</resources>
