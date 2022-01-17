@@ -44,3 +44,4 @@ project(':widgets').projectDir = new File('views/widgets')
 // 字母索引导航
 include ':letterindexbar'
 project(':letterindexbar').projectDir = new File('views/letterindexbar')
+include ':http_json'
