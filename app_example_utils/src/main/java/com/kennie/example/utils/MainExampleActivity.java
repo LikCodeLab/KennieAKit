@@ -1,15 +1,16 @@
 package com.kennie.example.utils;
 
+import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-
+import com.kennie.utils.AppIntentUtils;
 import com.kennie.utils.AppStoreUtils;
+import com.kennie.utils.AppUtils;
 import com.kennie.utils.RegexUtils;
 import com.kennie.utils.ScreenUtils;
-import com.kennie.utils.config.AppStore;
 
 public class MainExampleActivity extends AppCompatActivity {
 
@@ -20,7 +21,9 @@ public class MainExampleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_example);
         initUtils();
-        initAppMarketUtils();
+        initAppIntentUtils();
+        initAppStoreUtils();
+        initAppUtils();
         initRegexUtils();
         initScreenUtils();
     }
@@ -32,7 +35,23 @@ public class MainExampleActivity extends AppCompatActivity {
 
     }
 
-    private void initAppMarketUtils() {
+    private void initAppIntentUtils() {
+        Log.i(TAG, " ************************ initAppIntentUtils BEGIN *************************** ");
+        findViewById(R.id.AppIntentUtils1).setOnClickListener(v -> AppIntentUtils.startApp("com.tencent.mm"));
+        findViewById(R.id.AppIntentUtils2).setOnClickListener(v -> AppIntentUtils.startAppDetail(AppUtils.getAppPackage()));
+        findViewById(R.id.AppIntentUtils3).setOnClickListener(v -> AppIntentUtils.startAppUninstall(AppUtils.getAppPackage()));
+        findViewById(R.id.AppIntentUtils4).setOnClickListener(v -> AppIntentUtils.startSettings(Settings.ACTION_SETTINGS));
+        findViewById(R.id.AppIntentUtils5).setOnClickListener(v -> AppIntentUtils.startBrowser("https://www.baidu.com"));
+        findViewById(R.id.AppIntentUtils6).setOnClickListener(v -> AppIntentUtils.startBrowserBySearch("Android"));
+        findViewById(R.id.AppIntentUtils7).setOnClickListener(v -> AppIntentUtils.startCallPhone("15062255123"));
+        findViewById(R.id.AppIntentUtils8).setOnClickListener(v -> AppIntentUtils.startSendSMS("15062255123", "测试短信发送内容"));
+        findViewById(R.id.AppIntentUtils9).setOnClickListener(v -> AppIntentUtils.startSendEmail("245794336@qq.com"));
+        findViewById(R.id.AppIntentUtilsNotification).setOnClickListener(v -> AppIntentUtils.startAppNotification(AppUtils.getAppPackage()));
+
+        Log.i(TAG, " ************************ initAppIntentUtils END *************************** ");
+    }
+
+    private void initAppStoreUtils() {
         Log.i(TAG, " ************************ initAppMarketUtils BEGIN *************************** ");
         Log.i(TAG, "判断应用市场是否存在 : " + AppStoreUtils.get().isMarketAvailable());
         Log.i(TAG, "判断当前应用是否来源Google Play : " + AppStoreUtils.get().isInstalledFromGooglePlay());
@@ -41,9 +60,16 @@ public class MainExampleActivity extends AppCompatActivity {
         Log.i(TAG, " ************************ initAppMarketUtils END *************************** ");
     }
 
+    private void initAppUtils() {
+        Log.i(TAG, " ************************ initAppUtils BEGIN *************************** ");
+        Log.i(TAG, "获取APP名称 : " + AppUtils.getAppName());
+        Log.i(TAG, "判断APP是否安装 : " + AppUtils.isInstalled("com.tencent.mm"));
+        Log.i(TAG, " ************************ initAppUtils END *************************** ");
+    }
+
     private void initRegexUtils() {
         Log.i(TAG, " ************************ RegexUtils BEGIN *************************** ");
-        Log.i(TAG, "验证是否是手机号 : " + RegexUtils.isMobile("15062255123"));
+        Log.i(TAG, "验证是否是手机号 : " + RegexUtils.isPhone("15062255123"));
         Log.i(TAG, "验证是否是邮箱 : " + RegexUtils.isEmail("245794336@qq.com"));
         Log.i(TAG, "验证是否是银行卡号 : " + RegexUtils.isBankCardNo("6224"));
         Log.i(TAG, "验证身份证号是否符合规则 : " + RegexUtils.isIDCardNo("6224"));

@@ -1,14 +1,12 @@
 package com.kennie.utils;
 
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.kennie.utils.config.AppStore;
 import com.kennie.utils.config.UtilInit;
 
 import java.util.List;
@@ -23,14 +21,15 @@ import java.util.List;
  * <p>
  * --判断应用市场是否存在                                {@link #isMarketAvailable()}
  * --判断当前应用是否来源GooglePlay(从此下载)             {@link #isInstalledFromGooglePlay()}
+ * --启动应用商店(自动化酷安、应用宝)                     {@link #startAutoAppStore(String appPackageName)}
  * --跳转到应用商店app详情界面                           {@link #startAppStoreDetail(String appPackage)}
  * --跳转到应用商店app详情界面                           {@link #startAppStoreDetail(String appPackage, String marketPackage)}
  * </p>
  */
 public class AppStoreUtils {
-
+    private static final String TAG = AppStoreUtils.class.getSimpleName();
     public static final String MARKET_DATA = "market://details";
-    private static final String MARKET_SCHEMA_URL = "market://details?id=";
+    private static final String MARKET_SCHEMA_URL = MARKET_DATA + "?id=";
 
     private volatile static AppStoreUtils instance;
 
@@ -67,7 +66,7 @@ public class AppStoreUtils {
     public boolean isInstalledFromGooglePlay() {
         try {
             String installer = UtilInit.getAppContext().getPackageManager().getInstallerPackageName(UtilInit.getAppContext().getPackageName());
-            return installer != null && installer.equals(AppStore.GOOGLE_PLAY.appPackage);
+            return installer != null && installer.equals(APP_STORE_PACKAGE.GOOGLE_PACKAGE_NAME);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -84,11 +83,11 @@ public class AppStoreUtils {
     public boolean startAutoAppStore(String appPackageName) {
         try {
             String deviceBrand = getDeviceBrand(); //获得手机厂商
-            Log.i("AppStoreUtils", "当前手机厂商品牌 ：" + deviceBrand);
+            Log.i(TAG, "当前手机厂商品牌 ：" + deviceBrand);
             //根据厂商获取对应市场的包名
             String brandName = deviceBrand.toUpperCase(); //大写
             if (TextUtils.isEmpty(brandName)) {
-                Log.e("AppStoreUtils", "没有读取到手机厂商~~");
+                Log.e(TAG, "没有读取到手机厂商~~");
                 return false;
             }
             String marketPackageName = getBrandName(brandName);
@@ -110,7 +109,7 @@ public class AppStoreUtils {
             return true;
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("AppStoreUtils", "startAutoAppStore 异常 ：" + e.getMessage());
+            Log.e(TAG, "startAutoAppStore 异常 ：" + e.getMessage());
 
         }
         return false;

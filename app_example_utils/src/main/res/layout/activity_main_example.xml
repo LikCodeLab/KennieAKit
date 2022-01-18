@@ -1,25 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainExampleActivity">
+    tools:context=".MainExampleActivity"
+    tools:ignore="HardcodedText">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appStore1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_res_dp_10"
-        android:text="跳转到应用商店"/>
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appStore1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:textSize="@dimen/_res_sp_12"
+            android:text="跳转到应用商店" />
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appStore2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_res_dp_10"
-        android:text="跳转到 酷安 应用商店"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appStore2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:textSize="@dimen/_res_sp_12"
+            android:text="跳转到 酷安 应用商店" />
 
-</LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:gravity="center"
+            android:textSize="@dimen/_res_sp_16"
+            android:text="****** AppIntentUtils ******" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AppIntentUtils1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:textSize="@dimen/_res_sp_12"
+            android:text="通过包名启动App : 微信" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AppIntentUtils2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:textSize="@dimen/_res_sp_12"
+            android:text="通过包名启动App应用详情页" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AppIntentUtils3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:textSize="@dimen/_res_sp_12"
+            android:text="通过包名启动App卸载页 " />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AppIntentUtilsNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:textSize="@dimen/_res_sp_12"
+            android:text="通过包名启动App通知页面 " />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AppIntentUtils4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_res_sp_12"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:text="启动相关详情页(根据 android.provider.Settings) " />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AppIntentUtils5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:textSize="@dimen/_res_sp_12"
+            android:text="启动浏览器并打开指定URL页面 " />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AppIntentUtils6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:textSize="@dimen/_res_sp_12"
+            android:text="启动浏览器并打开指定URL页面 " />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AppIntentUtils7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:textSize="@dimen/_res_sp_12"
+            android:text="启动拨打电话 " />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AppIntentUtils8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:textSize="@dimen/_res_sp_12"
+            android:text="启动发送短信 " />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AppIntentUtils9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_res_dp_10"
+            android:textSize="@dimen/_res_sp_12"
+            android:text="启动发送邮件 " />
+
+    </LinearLayout>
+
+
+</ScrollView>
