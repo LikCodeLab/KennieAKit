@@ -1,5 +1,6 @@
 package com.kennie.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.util.DisplayMetrics;
@@ -7,7 +8,7 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
 
-import com.kennie.utils.config.UtilInit;
+import com.kennie.utils.manager.UtilsManager;
 
 import java.lang.reflect.Method;
 
@@ -19,7 +20,6 @@ import java.lang.reflect.Method;
  * Desc：手机屏幕管理类
  *
  * <p>
- * --*********                                      {@link #}
  * --获取状态栏高度px                                      {@link #getStatusBarHeight()}
  * --获取ActionBar高度px                                         {@link #getActionBarHeight()}
  * --获取导航栏高度px                                         {@link #getNavigationBarHeight()}
@@ -31,7 +31,19 @@ import java.lang.reflect.Method;
  * --px转换为dp                                         {@link #px2dp(int px)}
  * </p>
  */
-public class ScreenUtils {
+public abstract class ScreenUtils {
+
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
+
+    /**
+     * 初始化
+     *
+     * @param ctx 上下文对象
+     */
+    public static void init(Context ctx) {
+        context = ctx;
+    }
 
     /**
      * 获得屏幕宽度
@@ -39,7 +51,7 @@ public class ScreenUtils {
      * @return 屏幕宽度
      */
     public static int getScreenWidth() {
-        WindowManager wm = (WindowManager) UtilInit.getAppContext().getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = (WindowManager) UtilsManager.get().getAppContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(outMetrics);
         return outMetrics.widthPixels;
@@ -51,7 +63,7 @@ public class ScreenUtils {
      * @return 屏幕宽度
      */
     public static int getScreenWidth1() {
-        return UtilInit.getAppContext().getResources().getDisplayMetrics().widthPixels;
+        return context.getResources().getDisplayMetrics().widthPixels;
     }
 
 
@@ -61,7 +73,7 @@ public class ScreenUtils {
      * @return 屏幕高度
      */
     public static int getScreenHeight() {
-        WindowManager wm = (WindowManager) UtilInit.getAppContext().getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(outMetrics);
         return outMetrics.heightPixels;
@@ -74,7 +86,7 @@ public class ScreenUtils {
      * @return 屏幕高度
      */
     public static int getScreenHeight1() {
-        return UtilInit.getAppContext().getResources().getDisplayMetrics().heightPixels;
+        return context.getResources().getDisplayMetrics().heightPixels;
     }
 
 
@@ -84,7 +96,7 @@ public class ScreenUtils {
      * @return
      */
     public static float getScreenDensity() {
-        return UtilInit.getAppContext().getResources().getDisplayMetrics().density;
+        return context.getResources().getDisplayMetrics().density;
     }
 
 
@@ -95,9 +107,9 @@ public class ScreenUtils {
      */
     public static int getStatusBarHeight() {
         int statusHeight = 0;
-        int resourceId = UtilInit.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
         if (resourceId > 0) {
-            statusHeight = UtilInit.getAppContext().getResources().getDimensionPixelSize(resourceId);
+            statusHeight = context.getResources().getDimensionPixelSize(resourceId);
         }
         return statusHeight;
     }
@@ -111,8 +123,8 @@ public class ScreenUtils {
     public static int getActionBarHeight() {
         int height = 0;
         TypedValue tv = new TypedValue();
-        if (UtilInit.getAppContext().getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
-            height = TypedValue.complexToDimensionPixelSize(tv.data, UtilInit.getAppContext().getResources().getDisplayMetrics());
+        if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+            height = TypedValue.complexToDimensionPixelSize(tv.data, context.getResources().getDisplayMetrics());
         }
         return height;
     }
@@ -125,14 +137,14 @@ public class ScreenUtils {
      */
     public static int getNavigationBarHeight() {
         String field = "";
-        if (UtilInit.getAppContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+        if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             field = "navigation_bar_height";
         } else {
             field = "navigation_bar_height_landscape";
         }
-        int resourceId = UtilInit.getAppContext().getResources().getIdentifier(field, "dimen", "android");
+        int resourceId = context.getResources().getIdentifier(field, "dimen", "android");
         if (resourceId > 0) {
-            return UtilInit.getAppContext().getResources().getDimensionPixelSize(resourceId);
+            return context.getResources().getDimensionPixelSize(resourceId);
         } else {
             return 0;
         }
@@ -156,7 +168,7 @@ public class ScreenUtils {
      */
     public static int getDpi() {
         int dpi;
-        WindowManager wm = (WindowManager) UtilInit.getAppContext().getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
         DisplayMetrics dm = new DisplayMetrics();
         Class c;
@@ -213,11 +225,9 @@ public class ScreenUtils {
     }
 
     private static int dp2px(float value, int unit) {
-        DisplayMetrics displayMetrics = UtilInit.getAppContext().getResources().getDisplayMetrics();
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return (int) TypedValue.applyDimension(unit, value, displayMetrics);
     }
-
-
 
 
 }

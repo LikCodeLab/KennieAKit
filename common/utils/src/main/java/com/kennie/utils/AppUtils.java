@@ -7,7 +7,7 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
-import com.kennie.utils.config.UtilInit;
+import com.kennie.utils.manager.UtilsManager;
 
 /**
  * Author：Kennie
@@ -33,9 +33,9 @@ public class AppUtils {
      * @return {@code the application's app name}: app应用名称 <br>
      */
     public static String getAppName() {
-        PackageManager pm = UtilInit.getAppContext().getPackageManager();
+        PackageManager pm = UtilsManager.get().getAppContext().getPackageManager();
         try {
-            ApplicationInfo applicationInfo = pm.getApplicationInfo(UtilInit.getAppContext().getPackageName(), 0);
+            ApplicationInfo applicationInfo = pm.getApplicationInfo(UtilsManager.get().getAppContext().getPackageName(), 0);
             return String.valueOf(pm.getApplicationLabel(applicationInfo));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class AppUtils {
      * @return {@code the application's package name}: app应用包名 <br>
      */
     public static String getAppPackage() {
-        return UtilInit.getAppContext().getPackageName();
+        return UtilsManager.get().getAppContext().getPackageName();
     }
 
 
@@ -62,7 +62,7 @@ public class AppUtils {
     public static boolean isInstalled(@NonNull String packageName) {
         if (TextUtils.isEmpty(packageName)) return false;
         try {
-            PackageInfo info = UtilInit.getAppContext().getPackageManager().getPackageInfo(packageName, 0);
+            PackageInfo info = UtilsManager.get().getAppContext().getPackageManager().getPackageInfo(packageName, 0);
             return info != null;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

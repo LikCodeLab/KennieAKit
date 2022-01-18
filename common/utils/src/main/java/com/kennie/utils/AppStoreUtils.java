@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.kennie.utils.config.UtilInit;
+import com.kennie.utils.manager.UtilsManager;
 
 import java.util.List;
 
@@ -53,7 +53,7 @@ public class AppStoreUtils {
     public boolean isMarketAvailable() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(MARKET_DATA));
-        List<ResolveInfo> list = UtilInit.getAppContext().getPackageManager().queryIntentActivities(intent, 0);
+        List<ResolveInfo> list = UtilsManager.get().getAppContext().getPackageManager().queryIntentActivities(intent, 0);
         return list != null && list.size() > 0;
     }
 
@@ -65,7 +65,7 @@ public class AppStoreUtils {
      */
     public boolean isInstalledFromGooglePlay() {
         try {
-            String installer = UtilInit.getAppContext().getPackageManager().getInstallerPackageName(UtilInit.getAppContext().getPackageName());
+            String installer = UtilsManager.get().getAppContext().getPackageManager().getInstallerPackageName(UtilsManager.get().getAppContext().getPackageName());
             return installer != null && installer.equals(APP_STORE_PACKAGE.GOOGLE_PACKAGE_NAME);
         } catch (Exception e) {
             e.printStackTrace();
@@ -143,7 +143,7 @@ public class AppStoreUtils {
                 }
             }
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            UtilInit.getAppContext().startActivity(intent);
+            UtilsManager.get().getAppContext().startActivity(intent);
             return true;
         } catch (ActivityNotFoundException anf) {
             Log.e("AppStoreUtils", "startAppStoreDetail 要跳转的应用市场不存在!");

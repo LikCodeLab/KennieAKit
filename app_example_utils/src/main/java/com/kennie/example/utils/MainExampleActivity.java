@@ -47,7 +47,6 @@ public class MainExampleActivity extends AppCompatActivity {
         findViewById(R.id.AppIntentUtils8).setOnClickListener(v -> AppIntentUtils.startSendSMS("15062255123", "测试短信发送内容"));
         findViewById(R.id.AppIntentUtils9).setOnClickListener(v -> AppIntentUtils.startSendEmail("245794336@qq.com"));
         findViewById(R.id.AppIntentUtilsNotification).setOnClickListener(v -> AppIntentUtils.startAppNotification(AppUtils.getAppPackage()));
-
         Log.i(TAG, " ************************ initAppIntentUtils END *************************** ");
     }
 

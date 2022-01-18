@@ -2,13 +2,8 @@ package com.kennie.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
-
-import com.kennie.utils.config.UtilInit;
-import com.tencent.mmkv.MMKV;
 
 
 /**
@@ -36,31 +31,37 @@ import com.tencent.mmkv.MMKV;
  * --清空全部key-value                               {@link #clear()}
  * </p>
  */
-public class SPUtils {
+public abstract class SPUtils {
 
     private static final String DEFAULT_FILE_NAME = "sp_utils_config";
+    private static SharedPreferences sp;
 
     /**
-     * 获取SharedPreferences实例对象（默认）
+     * 初始化
      *
-     * @return
+     * @param context 上下文对象
      */
-    private static SharedPreferences getPreferences() {
-        return getPreferences(DEFAULT_FILE_NAME);
+    public static void init(Context context) {
+        init(context, DEFAULT_FILE_NAME);
     }
 
     /**
-     * 获取SharedPreferences实例对象（默认）
+     * 初始化
      *
+     * @param context   上下文对象
      * @param file_name data/data/<packagename>/shared_prefs下的文件名
-     * @return 返回实例对象
      */
-    private static SharedPreferences getPreferences(String file_name) {
-        if (TextUtils.isEmpty(file_name)) {
-            return PreferenceManager.getDefaultSharedPreferences(UtilInit.getAppContext());
-        } else {
-            return UtilInit.getAppContext().getSharedPreferences(file_name, Context.MODE_PRIVATE);
-        }
+    public static void init(Context context, String file_name) {
+        sp = context.getSharedPreferences(file_name, Context.MODE_PRIVATE);
+    }
+
+    /**
+     * 获取sp编辑器
+     *
+     * @return sp编辑器
+     */
+    private static SharedPreferences.Editor edit() {
+        return sp.edit();
     }
 
     // ================================== putData ==================================
@@ -74,15 +75,15 @@ public class SPUtils {
     public void putData(String key, Object value) {
         if (value instanceof String) {
             // string类型
-            getPreferences().edit().putString(key, (String) value).apply();
+            edit().putString(key, (String) value).apply();
         } else if (value instanceof Boolean) {
-            getPreferences().edit().putBoolean(key, (Boolean) value).apply();
+            edit().putBoolean(key, (Boolean) value).apply();
         } else if (value instanceof Integer) {
-            getPreferences().edit().putInt(key, (Integer) value).apply();
+            edit().putInt(key, (Integer) value).apply();
         } else if (value instanceof Float) {
-            getPreferences().edit().putFloat(key, (Float) value).apply();
+            edit().putFloat(key, (Float) value).apply();
         } else if (value instanceof Long) {
-            getPreferences().edit().putLong(key, (Long) value).apply();
+            edit().putLong(key, (Long) value).apply();
         }
     }
 
@@ -96,15 +97,15 @@ public class SPUtils {
     public boolean putDataForResult(String key, Object value) {
         if (value instanceof String) {
             // string类型
-            return getPreferences().edit().putString(key, (String) value).commit();
+            return edit().putString(key, (String) value).commit();
         } else if (value instanceof Boolean) {
-            return getPreferences().edit().putBoolean(key, (Boolean) value).commit();
+            return edit().putBoolean(key, (Boolean) value).commit();
         } else if (value instanceof Integer) {
-            return getPreferences().edit().putInt(key, (Integer) value).commit();
+            return edit().putInt(key, (Integer) value).commit();
         } else if (value instanceof Float) {
-            return getPreferences().edit().putFloat(key, (Float) value).commit();
+            return edit().putFloat(key, (Float) value).commit();
         } else if (value instanceof Long) {
-            return getPreferences().edit().putLong(key, (Long) value).commit();
+            return edit().putLong(key, (Long) value).commit();
         }
         return false;
     }
@@ -117,7 +118,7 @@ public class SPUtils {
     }
 
     public static String getString(String key, String defaultValue) {
-        return getPreferences().getString(key, defaultValue);
+        return sp.getString(key, defaultValue);
     }
 
     public static boolean getBoolean(String key) {
@@ -125,7 +126,7 @@ public class SPUtils {
     }
 
     public static boolean getBoolean(String key, boolean defaultValue) {
-        return getPreferences().getBoolean(key, defaultValue);
+        return sp.getBoolean(key, defaultValue);
     }
 
     public static int getInt(String key) {
@@ -133,7 +134,7 @@ public class SPUtils {
     }
 
     public static int getInt(String key, int defaultValue) {
-        return getPreferences().getInt(key, defaultValue);
+        return sp.getInt(key, defaultValue);
     }
 
     public static float getFloat(String key) {
@@ -141,31 +142,36 @@ public class SPUtils {
     }
 
     public static float getFloat(String key, float defaultValue) {
-        return getPreferences().getFloat(key, defaultValue);
+        return sp.getFloat(key, defaultValue);
     }
 
     public static long getLong(String key) {
-        return getPreferences().getLong(key, 0L);
+        return sp.getLong(key, 0L);
     }
 
     public static long getLong(String key, long defaultValue) {
-        return getPreferences().getLong(key, defaultValue);
+        return sp.getLong(key, defaultValue);
     }
 
     // ================================== contains ==================================
 
     public static boolean contains(@NonNull String key) {
-        return getPreferences().contains(key);
+        return sp.contains(key);
     }
 
     // ================================== remove ==================================
 
+    /**
+     * 移除一条记录
+     *
+     * @param key 名称
+     */
     public static void remove(@NonNull String key) {
-        getPreferences().edit().remove(key).apply();
+        sp.edit().remove(key).apply();
     }
 
     public static void clear() {
-        getPreferences().edit().clear().apply();
+        sp.edit().clear().apply();
     }
 
 }

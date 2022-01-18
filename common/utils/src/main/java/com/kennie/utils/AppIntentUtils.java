@@ -13,7 +13,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
-import com.kennie.utils.config.UtilInit;
+import com.kennie.utils.manager.UtilsManager;
 
 /**
  * Author：Kennie
@@ -45,7 +45,7 @@ public class AppIntentUtils {
      */
     public static boolean startApp(@NonNull String packageName) {
         try {
-            Intent intent = UtilInit.getAppContext().getPackageManager().getLaunchIntentForPackage(packageName);
+            Intent intent = UtilsManager.get().getAppContext().getPackageManager().getLaunchIntentForPackage(packageName);
             startActivity(intent);
             return true;
         } catch (Exception e) {
@@ -123,13 +123,13 @@ public class AppIntentUtils {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 // 适用于API26,即8.0（含8.0)以上可以使用
                 intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
-                intent.putExtra(Settings.EXTRA_APP_PACKAGE, UtilInit.getAppContext().getPackageName());
+                intent.putExtra(Settings.EXTRA_APP_PACKAGE, UtilsManager.get().getAppContext().getPackageName());
                 startActivity(intent);
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 // 适用于API21-25,即5.0-7.1之间版本可以使用
                 intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
-                intent.putExtra(Settings.EXTRA_APP_PACKAGE, UtilInit.getAppContext().getPackageName());
-                intent.putExtra(Settings.EXTRA_CHANNEL_ID, UtilInit.getAppContext().getApplicationInfo().uid);
+                intent.putExtra(Settings.EXTRA_APP_PACKAGE, UtilsManager.get().getAppContext().getPackageName());
+                intent.putExtra(Settings.EXTRA_CHANNEL_ID, UtilsManager.get().getAppContext().getApplicationInfo().uid);
                 startActivity(intent);
             } else {
                 // 其他情况跳转到App应用详情页
@@ -248,13 +248,13 @@ public class AppIntentUtils {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private static void gotoChannelSetting(String channelId) {
         Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS);
-        intent.putExtra(Settings.EXTRA_APP_PACKAGE, UtilInit.getAppContext().getPackageName());
+        intent.putExtra(Settings.EXTRA_APP_PACKAGE, UtilsManager.get().getAppContext().getPackageName());
         intent.putExtra(Settings.EXTRA_CHANNEL_ID, channelId);
         startActivity(intent);
     }
 
     private static void startActivity(Intent intent) {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        UtilInit.getApp().startActivity(intent);
+        UtilsManager.get().getApp().startActivity(intent);
     }
 }

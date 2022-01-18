@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * Desc：正则处理类
  *
  * <p>
- * --验证是否是手机号                                    {@link #isMobile(String strTelNo)}
+ * --验证是否是手机号                                    {@link #isPhone(String strTelNo)}
  * --验证是否是邮箱                                     {@link #isEmail(String strEmail)}
  * --验证是否是银行卡号                                  {@link #isBankCardNo(String strBankNo)}
  * --验证身份证号是否符合规则                             {@link #isIDCardNo(String strIDCardNo)}

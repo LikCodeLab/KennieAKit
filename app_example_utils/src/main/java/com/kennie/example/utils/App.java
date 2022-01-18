@@ -2,9 +2,7 @@ package com.kennie.example.utils;
 
 import android.app.Application;
 
-import com.kennie.utils.MMKVUtils;
-import com.kennie.utils.SPUtils;
-import com.kennie.utils.config.UtilInit;
+import com.kennie.utils.manager.UtilsManager;
 
 /**
  * project : KennieAKit
@@ -18,8 +16,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        UtilInit.init(this);
-        MMKVUtils.get().init(this);
+        UtilsManager.get().init(this);
         //SPUtils.get().init(this);
 
     }
