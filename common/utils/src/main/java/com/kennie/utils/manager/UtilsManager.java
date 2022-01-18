@@ -8,6 +8,7 @@ import com.kennie.utils.MMKVUtils;
 import com.kennie.utils.SPUtils;
 import com.kennie.utils.ScreenUtils;
 import com.kennie.utils.ViewUtils;
+import com.kennie.utils.core.FileUtils;
 import com.kennie.utils.core.LogUtils;
 import com.kennie.utils.helper.ToastHelper;
 
@@ -72,6 +73,8 @@ public class UtilsManager {
         ToastHelper.init(mApp);
         // App管理工具类
         AppUtils.init(mApp);
+        //文件管理工具类
+        FileUtils.init(mApp);
 
 
         MMKVUtils.get().init(mApp);

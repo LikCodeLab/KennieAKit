@@ -11,6 +11,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.kennie.utils.AppIntentUtils;
 import com.kennie.utils.AppStoreUtils;
 import com.kennie.utils.core.DataUtils;
+import com.kennie.utils.core.FileUtils;
 import com.kennie.utils.core.RegexUtils;
 import com.kennie.utils.ScreenUtils;
 import com.kennie.utils.core.AppUtils;
@@ -31,6 +32,7 @@ public class MainExampleActivity extends AppCompatActivity {
         initUtils();
         initAppUtils();
         initDataUtils();
+        initFileUtils();
         initRegexUtils();
         // 辅助日志管理工具类
         // initLogUtils();
@@ -86,10 +88,26 @@ public class MainExampleActivity extends AppCompatActivity {
     private void initDataUtils() {
         Log.i(TAG, " ************************ initDataUtils BEGIN *************************** ");
         AppCompatButton DataUtils0 = (AppCompatButton) findViewById(R.id.DataUtils0);
-        DataUtils0.setText("隐藏手机号中间四位:" + DataUtils.hidePhone("15062255123"));
         AppCompatButton DataUtils1 = (AppCompatButton) findViewById(R.id.DataUtils1);
         AppCompatButton DataUtils2 = (AppCompatButton) findViewById(R.id.DataUtils2);
+
+        DataUtils0.setText("隐藏手机号中间四位:" + DataUtils.hidePhone("15062255123"));
+        DataUtils1.setText("格式化银行卡号(4位空格):" + DataUtils.formatBankCardNumber("6666669578937041"));
+
+
         Log.i(TAG, " ************************ initDataUtils END *************************** ");
+    }
+
+    private void initFileUtils() {
+        Log.i(TAG, " ************************ initFileUtils BEGIN *************************** ");
+        AppCompatButton FileUtils0 = (AppCompatButton) findViewById(R.id.FileUtils0);
+        AppCompatButton FileUtils1 = (AppCompatButton) findViewById(R.id.FileUtils1);
+        AppCompatButton FileUtils2 = (AppCompatButton) findViewById(R.id.FileUtils2);
+        AppCompatButton FileUtils3 = (AppCompatButton) findViewById(R.id.FileUtils3);
+
+        FileUtils0.setText("获取文件扩展名:" + FileUtils.getFileExt("text.apk"));
+
+        Log.i(TAG, " ************************ initFileUtils END *************************** ");
     }
 
     private void initNotificationUtils() {
