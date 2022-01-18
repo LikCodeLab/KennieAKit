@@ -16,5 +16,5 @@ android {
 
 dependencies {
     // 腾讯 MMKV：https://github.com/Tencent/MMKV
-    api 'com.tencent:mmkv-static:1.2.11'
+    api 'com.tencent:mmkv:1.2.11'
 }

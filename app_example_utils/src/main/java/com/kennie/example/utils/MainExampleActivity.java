@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
-import com.kennie.example.utils.R;
+import com.kennie.utils.AppStoreUtils;
 import com.kennie.utils.RegexUtils;
 import com.kennie.utils.ScreenUtils;
+import com.kennie.utils.config.AppStore;
 
 public class MainExampleActivity extends AppCompatActivity {
 
@@ -18,9 +20,11 @@ public class MainExampleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_example);
         initUtils();
+        initAppMarketUtils();
         initRegexUtils();
         initScreenUtils();
     }
+
 
     private void initUtils() {
         Log.i(TAG, " ************************ initUtils BEGIN *************************** ");
@@ -28,15 +32,21 @@ public class MainExampleActivity extends AppCompatActivity {
 
     }
 
+    private void initAppMarketUtils() {
+        Log.i(TAG, " ************************ initAppMarketUtils BEGIN *************************** ");
+        Log.i(TAG, "判断应用市场是否存在 : " + AppStoreUtils.get().isMarketAvailable());
+        Log.i(TAG, "判断当前应用是否来源Google Play : " + AppStoreUtils.get().isInstalledFromGooglePlay());
+        findViewById(R.id.appStore1).setOnClickListener(v -> Log.i(TAG, "跳转到 应用商店:" + AppStoreUtils.get().startAutoAppStore("com.tencent.mm")));
+        findViewById(R.id.appStore2).setOnClickListener(v -> Log.i(TAG, "跳转到 酷安 应用商店 ：" + AppStoreUtils.get().startAppStoreDetail("com.tencent.mm", AppStoreUtils.APP_STORE_PACKAGE.COOLAPK_PACKAGE_NAME)));
+        Log.i(TAG, " ************************ initAppMarketUtils END *************************** ");
+    }
 
     private void initRegexUtils() {
         Log.i(TAG, " ************************ RegexUtils BEGIN *************************** ");
-
         Log.i(TAG, "验证是否是手机号 : " + RegexUtils.isMobile("15062255123"));
         Log.i(TAG, "验证是否是邮箱 : " + RegexUtils.isEmail("245794336@qq.com"));
         Log.i(TAG, "验证是否是银行卡号 : " + RegexUtils.isBankCardNo("6224"));
         Log.i(TAG, "验证身份证号是否符合规则 : " + RegexUtils.isIDCardNo("6224"));
-
         Log.i(TAG, " ************************ RegexUtils END *************************** ");
 
 

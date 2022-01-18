@@ -27,7 +27,7 @@ dependencies {
     debugApi crashX.leakcanary
 
     // MMKV
-    api 'com.tencent:mmkv:1.2.11'
+    //api 'com.tencent:mmkv:1.2.11'
     //Glide
     // 图片加载框架：https://github.com/bumptech/glide
     // 官方使用文档：https://github.com/Muyangmin/glide-docs-cn
