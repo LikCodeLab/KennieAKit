@@ -1,17 +1,24 @@
 package com.kennie.example.utils;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.kennie.utils.AppIntentUtils;
 import com.kennie.utils.AppStoreUtils;
-import com.kennie.utils.AppUtils;
-import com.kennie.utils.RegexUtils;
+import com.kennie.utils.core.RegexUtils;
 import com.kennie.utils.ScreenUtils;
+import com.kennie.utils.core.AppUtils;
+import com.kennie.utils.core.LogUtils;
+import com.kennie.utils.core.NotificationUtils;
+import com.kennie.utils.helper.PathHelper;
+import com.kennie.utils.helper.ToastHelper;
 
+@SuppressLint("SetTextI18n")
 public class MainExampleActivity extends AppCompatActivity {
 
     private static String TAG = MainExampleActivity.class.getSimpleName();
@@ -21,11 +28,77 @@ public class MainExampleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_example);
         initUtils();
-        initAppIntentUtils();
-        initAppStoreUtils();
         initAppUtils();
         initRegexUtils();
-        initScreenUtils();
+        // 辅助日志管理工具类
+        // initLogUtils();
+
+        // Toast工具类
+        // initToastUtils();
+
+
+        initNotificationUtils();
+
+
+//        initAppIntentUtils();
+//        initAppStoreUtils();
+
+
+//        initScreenUtils();
+    }
+
+
+    @SuppressLint("SetTextI18n")
+    private void initAppUtils() {
+        Log.i(TAG, " ************************ initAppUtils BEGIN *************************** ");
+        AppCompatButton AppUtils0 = (AppCompatButton) findViewById(R.id.AppUtils0);
+        AppCompatButton AppUtils1 = (AppCompatButton) findViewById(R.id.AppUtils1);
+        AppCompatButton AppUtils2 = (AppCompatButton) findViewById(R.id.AppUtils2);
+        AppCompatButton AppUtils3 = (AppCompatButton) findViewById(R.id.AppUtils3);
+        AppCompatButton AppUtils4 = (AppCompatButton) findViewById(R.id.AppUtils4);
+        AppCompatButton AppUtils5 = (AppCompatButton) findViewById(R.id.AppUtils5);
+        AppCompatButton AppUtils6 = (AppCompatButton) findViewById(R.id.AppUtils6);
+        AppCompatButton AppUtils7 = (AppCompatButton) findViewById(R.id.AppUtils7);
+        AppCompatButton AppUtils8 = (AppCompatButton) findViewById(R.id.AppUtils8);
+        AppCompatButton AppUtils9 = (AppCompatButton) findViewById(R.id.AppUtils9);
+        AppCompatButton AppUtils10 = (AppCompatButton) findViewById(R.id.AppUtils10);
+
+        AppUtils0.setText("获取APP名称 : " + AppUtils.getAppName());
+        AppUtils1.setText("APP包名 : " + AppUtils.getAppPackage());
+        AppUtils2.setText("App版本名称 ：" + AppUtils.getAppVersionName());
+        AppUtils3.setText("App版本号 ：" + AppUtils.getAppVersionCode());
+        Log.i(TAG, "App图标 ：");
+        AppUtils4.setBackground(AppUtils.getAppIcon());
+        AppUtils5.setText("App安装原始路径：" + AppUtils.getAppInstallPath());
+        AppUtils6.setText("App原始安装文件(APK)：" + AppUtils.getAppSourceFile());
+        AppUtils7.setText("APP是否为Debug模式 ：" + AppUtils.isAppDebugMode());
+        AppUtils8.setText("App是否处于前台 ：" + AppUtils.isAppTopForeground());
+        AppUtils9.setText("判断APP是否安装 : " + AppUtils.isInstalled("com.tencent.mm"));
+        AppUtils10.setText("安装APP（兼容Android7.0及以上版本）: " + PathHelper.getExternalStoragePath() + "/1.apk");
+        //AppUtils10.setOnClickListener(v -> AppUtils.installApk(new File(PathHelper.getExternalStoragePath() + "/1.apk"), ""));
+        Log.i(TAG, " ************************ initAppUtils END *************************** ");
+    }
+
+    private void initNotificationUtils() {
+
+        Log.i(TAG, "判断通知功能是否开启 : " + NotificationUtils.isNotificationEnabled());
+        Log.i(TAG, "判断通知渠道是否开启（8.0以上） : " + NotificationUtils.isNotificationChannelEnabled("LeakCanary Low Priority"));
+
+    }
+
+    private void initToastUtils() {
+        ToastHelper.shortT("dfdfdfdf");
+    }
+
+    private void initLogUtils() {
+        LogUtils.i("打印全局数据");
+        LogUtils.iTag(TAG, "打印I数据");
+        LogUtils.dTag(TAG, "打印D数据");
+        LogUtils.eTag(TAG, "打印E数据");
+        String xml = "<PROTOCOL><ERRORCODE>0</ERRORCODE><CLERK_SORT>0</CLERK_SORT><CLERK_NAME>院三星</CLERK_NAME><CLERK_PHONE>13511546546</CLERK_PHONE><CLERK_AREA>江苏省厅</CLERK_AREA><CLERK_REMARK>我市三星</CLERK_REMARK><ACCOUNT>qqq</ACCOUNT><URL>http://192.168.0.151:8888/</URL><UNIT></UNIT><DEPARTMENT_ID>149</DEPARTMENT_ID><PIC><LABEL>根</LABEL><LABEL>茎</LABEL><LABEL>叶</LABEL><LABEL>花</LABEL><LABEL>种子</LABEL><LABEL>整株</LABEL></PIC></PROTOCOL>\n";
+        LogUtils.xml(TAG, xml);
+        String json = "{\"title\":\"json在线解析（简版） -JSON在线解析\",\"json.url\":\"https://www.sojson.com/simple_json.html\",\"keywords\":\"json在线解析\",\"功能\":[\"JSON美化\",\"JSON数据类型显示\",\"JSON数组显示角标\",\"高亮显示\",\"错误提示\",{\"备注\":[\"www.sojson.com\",\"json.la\"]}],\"加入我们\":{\"qq群\":\"259217951\"}}";
+        LogUtils.json(TAG, json);
     }
 
 
@@ -59,19 +132,23 @@ public class MainExampleActivity extends AppCompatActivity {
         Log.i(TAG, " ************************ initAppMarketUtils END *************************** ");
     }
 
-    private void initAppUtils() {
-        Log.i(TAG, " ************************ initAppUtils BEGIN *************************** ");
-        Log.i(TAG, "获取APP名称 : " + AppUtils.getAppName());
-        Log.i(TAG, "判断APP是否安装 : " + AppUtils.isInstalled("com.tencent.mm"));
-        Log.i(TAG, " ************************ initAppUtils END *************************** ");
-    }
+
 
     private void initRegexUtils() {
         Log.i(TAG, " ************************ RegexUtils BEGIN *************************** ");
-        Log.i(TAG, "验证是否是手机号 : " + RegexUtils.isPhone("15062255123"));
-        Log.i(TAG, "验证是否是邮箱 : " + RegexUtils.isEmail("245794336@qq.com"));
-        Log.i(TAG, "验证是否是银行卡号 : " + RegexUtils.isBankCardNo("6224"));
-        Log.i(TAG, "验证身份证号是否符合规则 : " + RegexUtils.isIDCardNo("6224"));
+        AppCompatButton RegexUtils0 = (AppCompatButton) findViewById(R.id.RegexUtils0);
+        AppCompatButton RegexUtils1 = (AppCompatButton) findViewById(R.id.RegexUtils1);
+        AppCompatButton RegexUtils2 = (AppCompatButton) findViewById(R.id.RegexUtils2);
+        AppCompatButton RegexUtils3 = (AppCompatButton) findViewById(R.id.RegexUtils3);
+        AppCompatButton RegexUtils4 = (AppCompatButton) findViewById(R.id.RegexUtils4);
+        AppCompatButton RegexUtils5 = (AppCompatButton) findViewById(R.id.RegexUtils5);
+        AppCompatButton RegexUtils6 = (AppCompatButton) findViewById(R.id.RegexUtils6);
+        RegexUtils0.setText("验证手机号 15062255123: " + RegexUtils.isPhone("15062255123"));
+        RegexUtils1.setText("验证邮箱 245794336@qq.com: " + RegexUtils.isEmail("245794336@qq.com"));
+        RegexUtils2.setText("验证银行卡号 6666669578937041: " + RegexUtils.isBankCardNo("6666669578937041"));
+        RegexUtils3.setText("验证身份证号 110101199003072092 : " + RegexUtils.isIDCardNo("110101199003072092"));
+        RegexUtils4.setText("验证是否是url https://www.baidu.com : " + RegexUtils.isUrl("https://www.baidu.com"));
+
         Log.i(TAG, " ************************ RegexUtils END *************************** ");
 
 

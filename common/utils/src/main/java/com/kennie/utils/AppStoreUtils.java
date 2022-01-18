@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.kennie.utils.core.AppUtils;
 import com.kennie.utils.manager.UtilsManager;
 
 import java.util.List;

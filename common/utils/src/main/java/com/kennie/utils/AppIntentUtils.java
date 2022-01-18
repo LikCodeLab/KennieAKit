@@ -13,6 +13,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
+import com.kennie.utils.core.RegexUtils;
 import com.kennie.utils.manager.UtilsManager;
 
 /**

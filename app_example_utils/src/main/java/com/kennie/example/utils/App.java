@@ -16,7 +16,8 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        UtilsManager.get().init(this);
+        UtilsManager.get()
+                .init(this , BuildConfig.DEBUG);
         //SPUtils.get().init(this);
 
     }

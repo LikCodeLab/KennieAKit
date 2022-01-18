@@ -3,9 +3,13 @@ package com.kennie.utils.manager;
 import android.app.Application;
 import android.content.Context;
 
+import com.kennie.utils.core.AppUtils;
 import com.kennie.utils.MMKVUtils;
 import com.kennie.utils.SPUtils;
 import com.kennie.utils.ScreenUtils;
+import com.kennie.utils.ViewUtils;
+import com.kennie.utils.core.LogUtils;
+import com.kennie.utils.helper.ToastHelper;
 
 /**
  * Author：Kennie
@@ -57,9 +61,23 @@ public class UtilsManager {
      */
     public UtilsManager init(Application app, boolean debugEnabled) {
         mApp = app;
+
+        // Log 辅助日志工具类
+        LogUtils.getConfig()
+                .setApp(mApp)
+                .setLogSwitch(debugEnabled)
+                .setConsoleSwitch(debugEnabled)
+                .setGlobalTag(mApp.getClass().getSimpleName());
+        // Toast 吐司工具类
+        ToastHelper.init(mApp);
+        // App管理工具类
+        AppUtils.init(mApp);
+
+
         MMKVUtils.get().init(mApp);
         SPUtils.init(mApp);
         ScreenUtils.init(mApp);
+        ViewUtils.init(mApp);
         return this;
     }
 
