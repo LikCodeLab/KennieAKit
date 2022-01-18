@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.kennie.utils.AppIntentUtils;
 import com.kennie.utils.AppStoreUtils;
+import com.kennie.utils.core.DataUtils;
 import com.kennie.utils.core.RegexUtils;
 import com.kennie.utils.ScreenUtils;
 import com.kennie.utils.core.AppUtils;
@@ -29,6 +30,7 @@ public class MainExampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_example);
         initUtils();
         initAppUtils();
+        initDataUtils();
         initRegexUtils();
         // 辅助日志管理工具类
         // initLogUtils();
@@ -46,6 +48,8 @@ public class MainExampleActivity extends AppCompatActivity {
 
 //        initScreenUtils();
     }
+
+
 
 
     @SuppressLint("SetTextI18n")
@@ -77,6 +81,15 @@ public class MainExampleActivity extends AppCompatActivity {
         AppUtils10.setText("安装APP（兼容Android7.0及以上版本）: " + PathHelper.getExternalStoragePath() + "/1.apk");
         //AppUtils10.setOnClickListener(v -> AppUtils.installApk(new File(PathHelper.getExternalStoragePath() + "/1.apk"), ""));
         Log.i(TAG, " ************************ initAppUtils END *************************** ");
+    }
+
+    private void initDataUtils() {
+        Log.i(TAG, " ************************ initDataUtils BEGIN *************************** ");
+        AppCompatButton DataUtils0 = (AppCompatButton) findViewById(R.id.DataUtils0);
+        DataUtils0.setText("隐藏手机号中间四位:" + DataUtils.hidePhone("15062255123"));
+        AppCompatButton DataUtils1 = (AppCompatButton) findViewById(R.id.DataUtils1);
+        AppCompatButton DataUtils2 = (AppCompatButton) findViewById(R.id.DataUtils2);
+        Log.i(TAG, " ************************ initDataUtils END *************************** ");
     }
 
     private void initNotificationUtils() {

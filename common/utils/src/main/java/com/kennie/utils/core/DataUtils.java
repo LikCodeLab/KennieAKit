@@ -14,10 +14,10 @@ package com.kennie.utils.core;
 public class DataUtils {
 
     /**
-     * 隐藏手机号中间四位
+     * 隐藏手机号中间四位(验证不是手机直接返回)
      *
      * @param phone 手机号码
-     * @return 结果
+     * @return {@code 处理后的字符串 } <br>
      */
     public static String hidePhone(String phone) {
         if (RegexUtils.isPhone(phone)) {
