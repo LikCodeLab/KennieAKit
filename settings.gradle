@@ -15,8 +15,6 @@ rootProject.name = "KennieAKit"
 //************************演示项目 目录************************
 include ':app_example'
 include ':app_example_utils'
-include ':app_example_widgets'
-
 
 //************************模块 目录************************
 include ':module_chat'
@@ -40,8 +38,6 @@ project(':router').projectDir = new File('common/router')
 
 
 //************************自定义Views 目录************************
-include ':widgets'
-project(':widgets').projectDir = new File('views/widgets')
 // 字母索引导航
 include ':letterindexbar'
 project(':letterindexbar').projectDir = new File('views/letterindexbar')

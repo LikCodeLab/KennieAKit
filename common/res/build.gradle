@@ -16,4 +16,5 @@ android {
 
 dependencies {
     implementation depX.material
+    api kennieX.res
 }
