@@ -1,4 +1,4 @@
-package com.kennie.base.project.core;
+package com.kennie.base.project;
 
 import android.content.Context;
 import android.content.Intent;
