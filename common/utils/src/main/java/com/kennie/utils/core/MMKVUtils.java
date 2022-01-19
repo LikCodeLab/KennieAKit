@@ -1,4 +1,4 @@
-package com.kennie.utils;
+package com.kennie.utils.core;
 
 import android.content.Context;
 

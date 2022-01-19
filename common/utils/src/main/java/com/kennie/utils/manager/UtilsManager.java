@@ -4,12 +4,12 @@ import android.app.Application;
 import android.content.Context;
 
 import com.kennie.utils.core.AppUtils;
-import com.kennie.utils.MMKVUtils;
-import com.kennie.utils.SPUtils;
-import com.kennie.utils.ScreenUtils;
-import com.kennie.utils.ViewUtils;
 import com.kennie.utils.core.FileUtils;
 import com.kennie.utils.core.LogUtils;
+import com.kennie.utils.core.MMKVUtils;
+import com.kennie.utils.core.SPUtils;
+import com.kennie.utils.core.ScreenUtils;
+import com.kennie.utils.core.ViewUtils;
 import com.kennie.utils.helper.ToastHelper;
 
 /**

@@ -1,4 +1,4 @@
-package com.kennie.utils.algorithm;
+package com.kennie.utils.core.algorithm;
 
 /**
  * project : KennieAKit

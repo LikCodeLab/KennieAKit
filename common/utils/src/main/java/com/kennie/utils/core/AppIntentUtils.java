@@ -1,4 +1,4 @@
-package com.kennie.utils;
+package com.kennie.utils.core;
 
 import android.annotation.SuppressLint;
 import android.app.SearchManager;
@@ -13,7 +13,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
-import com.kennie.utils.core.RegexUtils;
 import com.kennie.utils.manager.UtilsManager;
 
 /**
