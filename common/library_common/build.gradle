@@ -23,6 +23,7 @@ dependencies {
     api project(':i18n')
     api project(':res')
     api project(':router')
+    api project(':utils')
     // 内存泄漏监测框架：https://github.com/square/leakcanary
     debugApi crashX.leakcanary
 

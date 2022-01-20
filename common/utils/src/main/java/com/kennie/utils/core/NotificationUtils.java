@@ -7,7 +7,7 @@ import android.os.Build;
 
 import androidx.core.app.NotificationManagerCompat;
 
-import com.kennie.utils.manager.UtilsManager;
+import com.kennie.utils.UtilsManager;
 
 /**
  * Author：Kennie

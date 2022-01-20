@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.kennie.example.project">
+
+    <!-- Application 节点详解：https://developer.android.google.cn/guide/topics/manifest/application-element -->
+    <!-- Activity 节点详解：https://developer.android.google.cn/guide/topics/manifest/activity-element -->
+    <application
+        android:name=".AppApplication"
+        android:icon="@mipmap/app_launcher_round"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/app_launcher_round"
+        android:theme="@style/_res_BaseAppTheme"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="false"
+        android:resizeableActivity="true"
+        android:usesCleartextTraffic="true"
+        tools:ignore="AllowBackup,LockedOrientationActivity"
+        tools:replace="android:allowBackup,android:supportsRtl"
+        tools:targetApi="n">
+
+        <meta-data
+            android:name="MY_CHANNEL"
+            android:value="${MY_CHANNEL}" />
+
+
+        <!-- 适配 Android 7.0 文件意图 -->
+        <provider
+            android:name=".config.BaseFileProvider"
+            android:authorities="${applicationId}.baseFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- 隐私政策等待页 -->
+        <activity
+            android:name=".ui.LoadingActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/_res_BaseSplashTheme">
+            <!-- 程序入口 -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 闪屏页 -->
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/_res_BaseSplashTheme"/>
+
+        <!-- 首页 -->
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+
+        <!-- yanshizidingyi -->
+        <activity
+            android:name=".ui.ExampleViewActivity"
+            android:screenOrientation="portrait"/>
+
+    </application>
+
+</manifest>

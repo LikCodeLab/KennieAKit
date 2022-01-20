@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 登录界面 -->
+    <string name="login_text">登录</string>
+    <string name="login_phone_hint">请输入手机号码</string>
+    <string name="login_password_hint">请输入密码</string>
+    <string name="login_register">注册</string>
+    <string name="login_forget">忘记密码？</string>
+    <string name="login_other">其他登录方式</string>
+
+    <!-- 注册界面 -->
+    <string name="register_title">注册</string>
+    <string name="register_hint">手机号仅用于登录和保护账号安全</string>
+    <string name="code_input_hint">请输入验证码</string>
+    <string name="code_send">发送验证码</string>
+    <string name="code_send_hint">验证码已发送，请注意查收</string>
+    <string name="code_error_hint">验证码错误，请检查输入</string>
+    <string name="register_password_hint1">设置6&#8211;18位登录密码</string>
+    <string name="register_password_hint2">请再次输入密码</string>
+    <string name="register_password_input_error">两次密码输入不一致，请重新输入</string>
+
+    <!-- 设置界面 -->
+    <string name="setting_title">设置</string>
+    <string name="setting_language_switchover">语言切换</string>
+    <string name="setting_language_simple">简体中文</string>
+    <string name="setting_language_complex">繁体中文</string>
+
+
+    <!-- 重置(修改)手机号 -->
+    <string name="reset_phone_hint">下次登录请使用更换后的新手机号登录</string>
+    <string name="reset_phone_commit">立即绑定</string>
+
+</resources>

@@ -1,0 +1,56 @@
+include ':app_project'
+
+//**************************************************JackyLee Core (模块)目录****************************
+include ':liba_project'
+project(':liba_project').projectDir = new File('core/liba_project')
+
+include ':liba_support'
+project(':liba_support').projectDir = new File('core/liba_support')
+//**************************************************Http (Http模块)目录*********************************
+// volley google官方
+include ':liba_android_volley'
+project(':liba_android_volley').projectDir = new File('http/liba_android_volley')
+include ':liba_http_volley'
+project(':liba_http_volley').projectDir = new File('http/liba_http_volley')
+
+//**************************************************ImageLoader (图片模块)目录***************************
+include ':liba_imageloader_glide'
+project(':liba_imageloader_glide').projectDir = new File('imageloader/liba_imageloader_glide')
+
+//**************************************************Location (定位模块)目录******************************
+include ':liba_location_core'
+project(':liba_location_core').projectDir = new File('location/liba_location_core')
+include ':liba_location_gd'
+project(':liba_location_gd').projectDir = new File('location/liba_location_gd')
+
+//**************************************************Log (日志模块)目录***********************************
+//include ':liba_log'
+//project(':liba_log').projectDir = new File('log/liba_log')
+//**************************************************Region (地区选择)目录*********************************
+include ':liba_region'
+project(':liba_region').projectDir = new File('region/liba_region')
+
+//**************************************************Social (社会化分享组件模块)目录**************************
+include ':liba_social_core'
+project(':liba_social_core').projectDir = new File('social/liba_social_core')
+include ':liba_social_agent'
+project(':liba_social_agent').projectDir = new File('social/liba_social_agent')
+//**************************************************Util (工具模块)目录************************************
+include ':liba_utils'
+project(':liba_utils').projectDir = new File('utils/liba_utils')
+
+//**************************************************Push (推送模块)目录************************************
+include ':liba_push_core'
+project(':liba_push_core').projectDir = new File('push/liba_push_core')
+include ':liba_push_agent'
+project(':liba_push_agent').projectDir = new File('push/liba_push_agent')
+include ':liba_push_jpush'
+project(':liba_push_jpush').projectDir = new File('push/liba_push_jpush')
+//**************************************************ZCode (公共模块)目录************************************
+//include ':AndroidUtilCode',':AndroidUtilCode_library'
+//project(':AndroidUtilCode').projectDir = new File('zcode/AndroidUtilCode/app')
+//project(':AndroidUtilCode_library').projectDir = new File('zcode/AndroidUtilCode/utilcode')
+
+
+
+

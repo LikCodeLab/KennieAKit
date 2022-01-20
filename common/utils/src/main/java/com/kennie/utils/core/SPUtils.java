@@ -72,7 +72,7 @@ public abstract class SPUtils {
      * @param key   key名称
      * @param value 不同类型存储值
      */
-    public void putData(String key, Object value) {
+    public static void putData(String key, Object value) {
         if (value instanceof String) {
             // string类型
             edit().putString(key, (String) value).apply();

@@ -17,4 +17,7 @@ android {
 dependencies {
     // 腾讯 MMKV：https://github.com/Tencent/MMKV
     api 'com.tencent:mmkv:1.2.11'
+    // 解压缩zip
+    // https://github.com/srikanth-lingala/zip4j
+    implementation 'net.lingala.zip4j:zip4j:2.9.0'
 }

@@ -4,7 +4,7 @@ package com.kennie.utils.helper;
 import android.os.Build;
 import android.os.Environment;
 
-import com.kennie.utils.manager.UtilsManager;
+import com.kennie.utils.UtilsManager;
 
 import java.io.File;
 

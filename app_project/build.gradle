@@ -1,0 +1,40 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+apply from: "${rootDir}/configs/tools/gradle/app.gradle"
+
+android {
+
+    defaultConfig {
+        applicationId "com.kennie.example.project"
+        versionCode 100
+        versionName "1.0.0"
+        // 配合 productFlavors 节点按不同维度打包
+        // flavorDimensions "MODE"
+        // 修改 AndroidManifest.xml 里的变量，占位值无法覆盖的坑可参阅 https://www.jianshu.com/p/1d5271c2c366
+        manifestPlaceholders = [
+                MY_CHANNEL: "unknown",
+        ]
+    }
+
+}
+
+dependencies {
+
+    implementation depK.core
+    implementation depX.appcompat
+    implementation depX.material
+    implementation depX.multidex
+    implementation project(':base_project')
+
+    // 图片加载框架：https://github.com/bumptech/glide
+    // 官方使用文档：https://github.com/Muyangmin/glide-docs-cn
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    // 内存泄漏监测框架：https://github.com/square/leakcanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+
+}

@@ -15,6 +15,8 @@ rootProject.name = "KennieAKit"
 //************************演示项目 目录************************
 include ':app_example'
 include ':app_example_utils'
+include ':app_lib'
+include ':app_project'
 
 //************************模块 目录************************
 include ':module_chat'

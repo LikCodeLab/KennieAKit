@@ -13,7 +13,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
-import com.kennie.utils.manager.UtilsManager;
+import com.kennie.utils.UtilsManager;
 
 /**
  * Author：Kennie

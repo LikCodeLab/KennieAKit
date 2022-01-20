@@ -2,7 +2,7 @@ package com.kennie.example.utils;
 
 import android.app.Application;
 
-import com.kennie.utils.manager.UtilsManager;
+import com.kennie.utils.UtilsManager;
 
 /**
  * project : KennieAKit

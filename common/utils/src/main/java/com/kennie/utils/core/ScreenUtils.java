@@ -8,7 +8,7 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
 
-import com.kennie.utils.manager.UtilsManager;
+import com.kennie.utils.UtilsManager;
 
 import java.lang.reflect.Method;
 

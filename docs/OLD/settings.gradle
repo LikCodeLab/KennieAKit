@@ -1,0 +1,23 @@
+
+//************************Android官方演示(模块)目录************************
+include ':app_test'
+
+
+//************************个人演示项目 目录************************
+//include ':app_example_project'
+include ':app_example_project'
+project(':app_example_project').projectDir = new File('examples/app_example_project')
+include ':app_lib_example'
+project(':app_lib_example').projectDir = new File('examples/app_lib_example')
+
+//************************base_project(统一项目基础 模块)目录************************
+// include ':lib_base_project'
+
+//************************基础library（存放通用的封装源码）************************
+include ':library_base'
+project(':library_base').projectDir = new File('libs/library_base')
+
+//************************公共library（存放各个 module 公共的源码及资源）************************
+include ':library_common'
+project(':library_common').projectDir = new File('libs/library_common')
+

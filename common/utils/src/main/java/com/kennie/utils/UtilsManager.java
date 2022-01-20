@@ -1,4 +1,4 @@
-package com.kennie.utils.manager;
+package com.kennie.utils;
 
 import android.app.Application;
 import android.content.Context;
