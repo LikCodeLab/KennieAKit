@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+
+apply from: "${project.rootDir.getPath()}/dependencies/dependencies.gradle"
+
+android {
+    compileSdkVersion BUILD.compileSdkVersion
+    buildToolsVersion BUILD.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.learkoo.push.examples"
+        minSdkVersion BUILD.minSdkVersion
+        targetSdkVersion BUILD.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            //是否混淆
+            minifyEnabled false
+            //是否删除无用资源
+            shrinkResources true
+            proguardFiles new File('../proguard-rules.pro')
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+
+        // 开发
+        app_debug {
+
+        }
+
+        // 发布
+        app_release {
+
+        }
+
+        // 测试
+        app_mqc {
+
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            if (variant.buildType.name.equals('release')) {
+                def outputFile = output.outputFile
+                def fileName = "learkoo_examples_push_v${variant.mergedFlavor.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
+                output.outputFile = new File(rootDir.absolutePath + "/apk", fileName)
+
+                if (output.zipAlign != null) {
+                    output.zipAlign.doLast {
+                        output.zipAlign.inputFile.delete()
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile supportDependencies.appcompat
+    compile project(':liba_push_agent')
+    compile project(':liba_push_core')
+    compile project(':liba_push_jpush')
+
+}
+
+// 得到当前时间的字符串 用于发包的时候拼接命名
+// 关于语言的实现参考 groovy def定义无类型的变量 返回值无类型的方法
+def releaseTime() {
+    return new Date().format("yyyyMMddHHmmss", TimeZone.getTimeZone("Asia/Shanghai"))
+}

@@ -1,0 +1,14 @@
+<resources>
+
+    <!--
+    ~
+    ~ 支付模块文案资源
+    ~
+    -->
+
+    <string name="payment_result_success">已支付</string>
+    <string name="payment_result_cacel">支付已取消</string>
+    <string name="payment_result_failed">支付失败</string>
+    <string name="payment_result_process">支付状态未知, 请联系客服</string>
+
+</resources>

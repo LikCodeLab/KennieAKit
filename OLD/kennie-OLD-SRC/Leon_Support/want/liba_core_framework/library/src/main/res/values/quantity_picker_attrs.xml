@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 初始值-->
+    <attr name="initCount" format="float"/>
+    <!-- 最小值-->
+    <attr name="minimum" format="float"/>
+    <!-- 最大值-->
+    <attr name="max" format="float"/>
+    <!-- 左侧按钮样式-->
+    <attr name="left_style" format="reference"/>
+    <!-- 数字样式-->
+    <attr name="number_style" format="reference"/>
+    <!-- 右侧按钮样式-->
+    <attr name="right_style" format="reference"/>
+
+    <declare-styleable name="QuantityPickerView">
+        <attr name="initCount"/>
+        <attr name="minimum"/>
+        <attr name="max"/>
+        <attr name="left_style"/>
+        <attr name="number_style"/>
+        <attr name="right_style"/>
+    </declare-styleable>
+</resources>

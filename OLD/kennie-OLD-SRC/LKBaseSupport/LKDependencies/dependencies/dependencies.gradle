@@ -1,0 +1,135 @@
+ext {
+
+    plugins = [
+            application: 'com.android.application',
+            library    : 'com.android.library',
+    ]
+
+    // android build version
+    PROJECT_BUILD = [
+            compileSdkVersion: 29,
+            buildToolsVersion: "29.0.1",
+            minSdkVersion    : 21,
+            targetSdkVersion : 29,
+            versionCode      : 001,
+            versionName      : "0.0.1"
+    ]
+
+    BUILD = PROJECT_BUILD
+
+
+    // android support version
+    supportVersion = '29.0.0'
+
+    // android support packages
+    supportPackage = 'com.android.support'
+
+    // 官方相关支持库
+    support = [
+
+            appcompat             : buildDependency(supportPackage, 'appcompat-v7', supportVersion),
+
+            v4                    : buildDependency(supportPackage, 'support-v4', supportVersion),
+            //  约束布局
+            constraint            : buildDependency("com.android.support.constraint", 'constraint-layout', '1.1.3'),
+            // design 低版本的Android上使用Material Design
+            // MD设计支持库
+            design                : buildDependency(supportPackage, 'design', supportVersion),
+            // recyclerview The RecyclerView widget is a more advanced and flexible version of ListView.
+            recyclerview          : buildDependency(supportPackage, 'recyclerview-v7', supportVersion),
+            // RecyclerView复选及状态持久化
+            recyclerview_selection: buildDependency(supportPackage, 'recyclerview-selection', supportVersion),
+            // CardView看做是FrameLayout在自身之上添加了圆角和阴影效果
+            cardview              : buildDependency(supportPackage, 'cardview-v7', supportVersion),
+            // gridlayout 4.0向下兼容GridLayout
+            gridlayout            : buildDependency(supportPackage, 'gridlayout-v7', supportVersion),
+            // 官方下拉刷新
+            swiperefreshlayout    : buildDependency(supportPackage, 'swiperefreshlayout', supportVersion),
+            // 可伸缩布局    https://github.com/google/flexbox-layout  1.0.0
+            flexbox               : 'com.google.android:flexbox:1.0.0',
+            // support-annotations Android官方提供的一个注解库
+            annotation            : buildDependency(supportPackage, 'support-annotations', supportVersion),
+            // multidex  解决65K 超过“65536”问题
+            multidex              : buildDependency(supportPackage, 'multidex', supportVersion),
+    ]
+
+    // JSON处理相关支持库
+    json = [
+            // https://github.com/google/gson
+            gson    : 'com.google.code.gson:gson:2.8.5',
+            // https://github.com/alibaba/fastjson
+            fastjson: 'com.alibaba:fastjson:1.1.71.android',
+    ]
+
+
+    // 网络请求相关支持库
+    http = [
+            volley         : 'com.android.volley:volley:1.1.1',
+            //rx
+            retrofit       : 'com.squareup.retrofit2:retrofit:2.2.0',
+            converter_gson : 'com.squareup.retrofit2:converter-gson:2.2.0',
+            adapter_rxjava2: 'com.squareup.retrofit2:adapter-rxjava2:2.2.0',
+            rxjava2        : 'io.reactivex.rxjava2:rxjava:2.1.0',
+            rxandroid2     : 'io.reactivex.rxjava2:rxandroid:2.0.1',
+    ]
+
+
+    // 图片处理相关支持库
+    image = [
+            // https://github.com/bumptech/glide
+            glide                     : 'com.github.bumptech.glide:glide:4.7.0',
+            glide_annotation_processor: 'com.github.bumptech.glide:compiler:4.7.0',
+
+    ]
+
+
+    // Chart图表处理相关支持库
+    chart = [
+            // https://github.com/PhilJay/MPAndroidChart 3.0.3
+            MPAndroidChart: 'com.github.PhilJay:MPAndroidChart:v3.0.3',
+
+    ]
+
+    // 检测异常crash相关支持库
+    check = [
+            //https://github.com/square/leakcanary
+            //debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+            //releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+            // Optional, if you use support library fragments:
+            //debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+            leakcanary_debug         : 'com.squareup.leakcanary:leakcanary-android:1.6.3',
+            leakcanary_release       : 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3',
+            leakcanary_fragment_debug: 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3',
+    ]
+
+    // Dialog对话框处理相关支持库
+    dialog = [
+            // https://github.com/kongzue/DialogV3
+            DialogV3: 'com.kongzue.dialog_v3:dialog:3.1.0',
+    ]
+
+    // TAB选项处理相关支持库
+    tab = [
+
+    ]
+
+
+    // Refresh刷新处理相关支持库
+    refresh = [
+            // https://github.com/scwang90/SmartRefreshLayout
+            SmartRefreshLayout: 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-32',
+            SmartRefreshHeader: 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-32', //没有使用特殊Header，可以不加这行
+    ]
+
+
+    // adapter适配器处理相关支持库
+    adapter = [
+            // https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+            BaseRecyclerViewAdapterHelper: 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47',
+    ]
+
+}
+
+static String buildDependency(String pack, String dependency, String version) {
+    return "${pack}:${dependency}:${version}"
+}

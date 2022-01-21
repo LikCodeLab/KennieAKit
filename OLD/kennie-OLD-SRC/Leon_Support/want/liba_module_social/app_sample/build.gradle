@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+apply from: "${project.rootDir.getPath()}/dependencies/dependencies.gradle"
+
+android {
+    compileSdkVersion PROJECT_BUILD.compileSdkVersion
+    buildToolsVersion PROJECT_BUILD.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion PROJECT_BUILD.minSdkVersion
+        targetSdkVersion PROJECT_BUILD.targetSdkVersion
+        applicationId "com.want.hotkidclub"
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(RELEASE_STOREFILE)
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+            storePassword RELEASE_STOREPASSWORD
+        }
+
+        debug {
+            storeFile file(DEBUG_STOREFILE)
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release_debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile supportDependencies.appcompat
+
+    compile project(':social_core')
+}

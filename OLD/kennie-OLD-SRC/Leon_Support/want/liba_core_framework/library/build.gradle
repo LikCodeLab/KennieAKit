@@ -1,0 +1,87 @@
+apply plugin: 'com.android.library'
+apply from: "${project.rootDir.getPath()}/dependencies/dependencies.gradle"
+
+android {
+    compileSdkVersion PROJECT_BUILD.compileSdkVersion
+    buildToolsVersion PROJECT_BUILD.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion PROJECT_BUILD.minSdkVersion
+        targetSdkVersion PROJECT_BUILD.targetSdkVersion
+        versionCode 125
+        versionName "1.2.5"
+    }
+
+    // enable databinding
+    dataBinding {
+        enabled true
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile supportDependencies.appcompat
+    compile supportDependencies.v4
+    compile supportDependencies.recyclerview
+    //    compile project(':liba_base_http')
+//    compile project(':core:liba_core_log')
+//    compile 'com.want.model:http:1.0-SNAPSHOT@aar'
+    // log
+    compile 'com.want.core:log:1.2@aar'
+    // ability
+    compile 'com.want.ability:core:1.1-SNAPSHOT@aar'
+
+    // ========= third part library =========
+    compile 'de.greenrobot:eventbus:2.4.0'
+    // use google gson
+    compile httpDependencies.gson
+}
+
+//是否提交到仓库
+def upload = false
+def release = false
+def vername = android.defaultConfig.versionName
+
+if (upload) {
+    apply plugin: 'maven'
+
+    println('upload model: sdk to maven...')
+
+    group = 'com.want.core'
+    version = release ? vername : vername + '-SNAPSHOT'
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+    }
+
+    artifacts {
+        archives androidSourcesJar
+        //当前aar 文件名
+        archives file('liba_core_framework.aar')
+    }
+
+    uploadArchives {
+        repositories.mavenDeployer {
+            repository(url: MAVEN_R_URL) {
+                authentication(userName: MAVEN_D_USERNAME, password: MAVEN_D_PASSWORD)
+            }
+            snapshotRepository(url: MAVEN_S_URL) {
+                authentication(userName: MAVEN_D_USERNAME, password: MAVEN_D_PASSWORD)
+            }
+            pom.artifactId = "sdk"
+        }
+    }
+}

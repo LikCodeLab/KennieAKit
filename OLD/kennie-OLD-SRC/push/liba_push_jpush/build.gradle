@@ -1,0 +1,87 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion BUILD.compileSdkVersion
+    buildToolsVersion BUILD.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion BUILD.minSdkVersion
+        targetSdkVersion BUILD.targetSdkVersion
+        versionCode 1
+        versionName "0.0.1"
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : "com.learkoo.push.examples",
+                JPUSH_APPKEY : "b5884332b0aaaec166bc9e5e", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile supportDependencies.appcompat
+    compile project(':liba_push_core')
+    compile project(':liba_push_agent')
+    compile 'cn.jiguang.sdk:jpush:3.0.1'
+    compile 'cn.jiguang.sdk:jcore:1.1.0'
+}
+
+//是否提交到仓库
+def upload = false
+def release = false
+def vername = android.defaultConfig.versionName
+
+if (upload) {
+    apply plugin: 'maven'
+
+    println('upload model: liba_push_jpush to maven...')
+
+    group = 'com.jackylee.push'
+    version = release ? vername : vername + '-SNAPSHOT'
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+    }
+
+    artifacts {
+        archives androidSourcesJar
+        //当前aar 文件名
+        archives file('liba_push_jpush.aar')
+    }
+
+    uploadArchives {
+        repositories.mavenDeployer {
+            repository(url: "http://localhost:9081/nexus/content/repositories/releases/") {
+                authentication(userName: "admin", password: "admin123")
+            }
+            snapshotRepository(url: "http://localhost:9081/nexus/content/repositories/snapshots/") {
+                authentication(userName: "admin", password: "admin123")
+            }
+            pom.artifactId = "push_jpush"
+        }
+    }
+}
+
+
+

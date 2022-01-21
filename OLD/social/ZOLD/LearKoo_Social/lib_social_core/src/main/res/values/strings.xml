@@ -1,0 +1,22 @@
+<resources>
+    <string name="social_share_success">分享成功</string>
+    <string name="social_share_fail">分享失败</string>
+    <string name="social_share_cancel">分享取消</string>
+    <string name="social_auth_success">认证授权成功</string>
+    <string name="social_auth_fail">认证授权失败</string>
+    <string name="social_auth_cancel">认证授权取消</string>
+    <string name="social_del_auth_success">删除授权成功</string>
+    <string name="social_del_auth_fail">删除授权失败</string>
+    <string name="social_del_auth_cancel">取消删除授权</string>
+    <string name="social_get_auth_info_success">获取授权用户信息成功</string>
+    <string name="social_get_auth_info_fail">获取授权用户信息失败</string>
+    <string name="social_get_auth_info_cancel">取消获取授权用户信息</string>
+    <string name="social_sinaweibo">新浪微博</string>
+    <string name="social_qq">QQ</string>
+    <string name="social_qzone">QQ空间</string>
+    <string name="social_wechat">微信</string>
+    <string name="social_wechatmoments">微信朋友圈</string>
+    <string name="social_wechatfavorite">微信收藏</string>
+    <string name="social_email">邮件</string>
+    <string name="social_shortmessage">短信息</string>
+</resources>

@@ -1,0 +1,64 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 23
+        versionCode 11
+        versionName "0.1.1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.want.core:log:1.1@aar'
+
+    compile project(':core:liba_core_framework')
+}
+//是否提交到仓库
+def upload = false
+def release = false
+def vername = android.defaultConfig.versionName
+
+if (upload) {
+    apply plugin: 'maven'
+
+    println('upload model: push-core to maven...')
+
+    group = 'com.want.model'
+    version = release ? vername : vername + '-SNAPSHOT'
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+    }
+
+    artifacts {
+        archives androidSourcesJar
+        //当前aar 文件名
+        archives file('liba_model_push_core.aar')
+    }
+
+    uploadArchives {
+        repositories.mavenDeployer {
+            repository(url: MAVEN_R_URL) {
+                authentication(userName: MAVEN_D_USERNAME, password: MAVEN_D_PASSWORD)
+            }
+            snapshotRepository(url: MAVEN_S_URL) {
+                authentication(userName: MAVEN_D_USERNAME, password: MAVEN_D_PASSWORD)
+            }
+            pom.artifactId = "push-core"
+        }
+    }
+}

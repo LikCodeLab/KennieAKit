@@ -1,0 +1,10 @@
+include ':demo'
+
+include(':payment_core')
+project(':payment_core').projectDir = new File('liba_payment_core')
+
+include(':payment_alipay')
+project(':payment_alipay').projectDir = new File('liba_alipay')
+
+include(':payment_wxpay')
+project(':payment_wxpay').projectDir = new File('liba_wxpay')

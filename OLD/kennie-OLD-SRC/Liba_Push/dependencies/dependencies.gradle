@@ -1,0 +1,96 @@
+ext {
+    // android build version
+    PROJECT_BUILD = [
+            compileSdkVersion: 25,
+            buildToolsVersion: '24.0.3',
+            minSdkVersion    : 15,
+            targetSdkVersion : 25
+    ]
+
+    BUILD = PROJECT_BUILD
+
+    // android support version
+    supportVersion = '25.0.0'
+    // android support packages
+    supportPackage = 'com.android.support'
+
+    // learkoo project packages
+
+    // support dependencies
+    supportDependencies = [
+            // v4 这个包是为了照顾1.6及更高版本而设计的，这个包是使用最广泛的
+            v4                 : buildDependency(supportPackage, 'support-v4', supportVersion),
+            // v13 这个包的设计是为了android 3.2及更高版本的，一般我们都不常用，平板开发中能用到。
+            v13                : buildDependency(supportPackage, 'support-v13', supportVersion),
+            // v7 这个包是为了考虑照顾2.1及以上版本而设计的，但不包含更低，故如果不考虑1.6,我们可以采用再加上这个包，另外注意，v7是要依赖v4这个包的，即，两个得同时被包含。
+            appcompat          : buildDependency(supportPackage, 'appcompat-v7', supportVersion),
+            // recyclerview The RecyclerView widget is a more advanced and flexible version of ListView.
+            recyclerview       : buildDependency(supportPackage, 'recyclerview-v7', supportVersion),
+            // cardview CardView看做是FrameLayout在自身之上添加了圆角和阴影效果。
+            cardview           : buildDependency(supportPackage, 'cardview-v7', supportVersion),
+            // design 低版本的Android上使用Material Design
+            // android.support.design.widget.TextInputLayout	强大带提示的MD风格的EditText
+            // android.support.design.widget.FloatingActionButton MD风格的圆形按钮，来自于ImageView
+            // android.support.design.widget.Snackbar 类似Toast，添加了简单的单个Action
+            // android.support.design.widget.TabLayout 选项卡
+            // android.support.design.widget.NavigationView DrawerLayout的SlideMenu
+            // android.support.design.widget.CoordinatorLayout 超级FrameLayout
+            // android.support.design.widget.AppBarLayout 	MD风格的滑动Layout
+            // android.support.design.widget.CollapsingToolbarLayout 可折叠MD风格ToolbarLayout
+            design             : buildDependency(supportPackage, 'design', supportVersion),
+            // support-annotations Android官方提供的一个注解库
+            support_annotations: buildDependency(supportPackage, 'support-annotations', supportVersion),
+            // gridlayout 4.0向下兼容GridLayout
+            gridlayout         : buildDependency(supportPackage, 'gridlayout', supportVersion),
+            // mediarouter 媒体路由支持库(无线共享)
+            mediarouter        : buildDependency(supportPackage, 'mediarouter', supportVersion),
+            // palette 抽取丰富图片的元素(从一张图片中提取较为突出的颜色)
+            palette            : buildDependency(supportPackage, 'palette', supportVersion),
+            // leanback 用于支持电视设备
+            leanback           : buildDependency(supportPackage, 'leanback', supportVersion),
+            // percent  百分比库
+            percent            : buildDependency(supportPackage, 'leanback', supportVersion),
+            // customtabs
+            customtabs         : buildDependency(supportPackage, 'customtabs', supportVersion),
+            //
+            vector_drawable    : buildDependency(supportPackage, 'support-vector-drawable', supportVersion),
+            //
+            wearable           : buildDependency("com.google.android.support", 'wearable', '2.0.0-alpha2'),
+    ]
+
+    // learkoo dependencies
+    learkooDependencies = [
+
+    ]
+
+    // square dependencies
+    squareDependencies = [
+            leakcanary      : buildDependency('com.squareup.leakcanary', 'leakcanary-android', '1.5'),
+            leakcanary_no_op: buildDependency('com.squareup.leakcanary', 'leakcanary-android-no-op', '1.5')
+    ]
+
+    eventbusDependencies = [
+            // eventbus 一个Android端优化的publish/subscribe消息总线，简化了应用程序内各组件间、组件与后台线程间的通信。
+            eventbus: buildDependency("de.greenrobot", 'eventbus', '2.4.0'),
+    ]
+
+    // http dependencies
+    httpDependencies = [
+            //gson 一个谷歌的json解析框架
+            gson: buildDependency('com.google.code.gson', 'gson', '2.5')
+    ]
+
+    // image dependencies
+    imageDependencies = [
+            glide: buildDependency('com.github.bumptech.glide', 'glide', '3.7.0')
+    ]
+
+    // widget dependencies
+    widgetDependencies = [
+    ]
+
+}
+
+String buildDependency(String pack, String dependency, String version) {
+    return "${pack}:${dependency}:${version}"
+}

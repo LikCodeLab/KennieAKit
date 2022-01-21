@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.want.base.sdk.framework.adapter.CommonPagerAdapter" />
+
+        <variable
+            name="adapter"
+            type="CommonPagerAdapter" />
+
+        <variable
+            name="autoScroll"
+            type="boolean"/>
+
+        <variable
+            name="scrollDelay"
+            type="long"/>
+    </data>
+
+    <com.want.base.sdk.widget.MViewPager
+        android:id="@id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:autoScroll="@{autoScroll}"
+        app:scrollDelay="@{scrollDelay}"
+        android:adapter="@{adapter}" />
+</layout>
+

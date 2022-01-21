@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">liba_module_update</string>
+    <string name="ec_url">http://b2bdemo.hollywant.com:88</string>
+</resources>

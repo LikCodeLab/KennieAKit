@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 文字大小-->
+    <dimen name="text_size_8">8sp</dimen>
+    <dimen name="text_size_10">10sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_22">22sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_26">26sp</dimen>
+    <dimen name="text_size_28">28sp</dimen>
+
+
+    <!-- -->
+    <dimen name="dp0">0dp</dimen>
+    <dimen name="dp1">1dp</dimen>
+    <dimen name="dp2">2dp</dimen>
+    <dimen name="dp3">3dp</dimen>
+    <dimen name="dp4">4dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="dp6">6dp</dimen>
+    <dimen name="dp8">8dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp12">12dp</dimen>
+    <dimen name="dp16">16dp</dimen>
+    <dimen name="dp18">18dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+
+    <dimen name="small">4dp</dimen>
+    <dimen name="xsmall">6dp</dimen>
+    <dimen name="normal">8dp</dimen>
+    <dimen name="xnormal">10dp</dimen>
+    <dimen name="media">12dp</dimen>
+    <dimen name="xmedia">14dp</dimen>
+    <dimen name="large">16dp</dimen>
+    <dimen name="xlarge">18dp</dimen>
+
+    <dimen name="dp_small">4dp</dimen>
+    <dimen name="dp_xsmall">6dp</dimen>
+    <dimen name="dp_normal">8dp</dimen>
+    <dimen name="dp_xnormal">10dp</dimen>
+    <dimen name="dp_media">12dp</dimen>
+    <dimen name="dp_xmedia">14dp</dimen>
+    <dimen name="dp_large">16dp</dimen>
+    <dimen name="dp_xlarge">18dp</dimen>
+</resources>

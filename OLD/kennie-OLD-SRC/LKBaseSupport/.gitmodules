@@ -1,0 +1,3 @@
+[submodule "LKDependencies"]
+	path = LKDependencies
+	url = git@gitee.com:JackyLeeDeveloper/LKDependencies.git

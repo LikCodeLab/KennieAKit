@@ -1,0 +1,22 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:label="微信支付测试"
+        tools:replace="android:label">
+
+        <activity android:name="net.sourceforge.simcpux.MainActivity">
+
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.MAIN" />
+
+            </intent-filter>
+        </activity>
+
+        <activity android:name="net.sourceforge.simcpux.WXEntryActivity" />
+    </application>
+
+</manifest>

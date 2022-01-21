@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- dialogs -->
+    <string name="dialog_message_loading_default">处理中，请稍后...</string>
+</resources>

@@ -1,0 +1,64 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion BUILD.compileSdkVersion
+    buildToolsVersion BUILD.buildToolsVersion
+    defaultConfig {
+        minSdkVersion BUILD.minSdkVersion
+        targetSdkVersion BUILD.targetSdkVersion
+        versionCode 1
+        versionName "0.0.1"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile supportDependencies.appcompat
+    compile 'com.jackylee.module:log:0.0.1-SNAPSHOT@aar'
+}
+
+
+//是否提交到仓库
+def upload = false
+def release = false
+def vername = android.defaultConfig.versionName
+
+if (upload) {
+    apply plugin: 'maven'
+
+    println('upload model: liba_social_core to maven...')
+
+    group = 'com.jackylee.module'
+    version = release ? vername : vername + '-SNAPSHOT'
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+    }
+
+    artifacts {
+        archives androidSourcesJar
+        //当前aar 文件名
+        archives file('liba_social_core.aar')
+    }
+
+    uploadArchives {
+        repositories.mavenDeployer {
+            repository(url: "http://localhost:9081/nexus/content/repositories/releases/") {
+                authentication(userName: "admin", password: "admin123")
+            }
+            snapshotRepository(url: "http://localhost:9081/nexus/content/repositories/snapshots/") {
+                authentication(userName: "admin", password: "admin123")
+            }
+            pom.artifactId = "social_core"
+        }
+    }
+}
+

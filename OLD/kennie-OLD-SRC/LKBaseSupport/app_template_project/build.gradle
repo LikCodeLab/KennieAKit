@@ -1,0 +1,213 @@
+apply plugin: rootProject.ext.plugins.application
+
+android {
+    compileSdkVersion BUILD.compileSdkVersion
+    buildToolsVersion BUILD.buildToolsVersion
+
+
+    defaultConfig {
+        applicationId "com.lk.project.template.example"
+        minSdkVersion BUILD.minSdkVersion
+        targetSdkVersion BUILD.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        // 解决方法数超过64K
+        multiDexEnabled true
+        renderscriptTargetApi 21
+        renderscriptSupportModeEnabled true
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters "armeabi", "armeabi-v7a", 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+
+    }
+
+
+    /**
+     * 自定义签名配置
+     */
+    signingConfigs {
+
+        debug {
+            storeFile file("../keystore/project_debug.keystore")
+            storePassword "123456"
+            keyAlias "debug"
+            keyPassword "123456"
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+        release {
+            storeFile file("../keystore/project_release.keystore")
+            storePassword "123456"
+            keyAlias "release"
+            keyPassword "123456"
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+
+    buildTypes {
+
+        debug {
+            applicationIdSuffix ".debug"
+            // 显示Log
+            buildConfigField "boolean", "LOG_ON", "true"
+            // 是否开启内存溢出
+            buildConfigField "boolean", "LEAKCANARY_ON", "true"
+            //
+            debuggable true
+            //是否混淆代码
+            minifyEnabled false
+            //Zipalign优化
+            zipAlignEnabled false
+            //移除无用的resource文件
+            shrinkResources false
+            //打包的签名
+            signingConfig signingConfigs.debug
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //buildConfigField "String", "BUGLY_KEY", '"27fc9881b4"' // BUGLY 的测试版KEY
+            //resValue "string", "app_name", "测试版"
+            //manifestPlaceholders = [BAIDUMAP_KEY: "7rDsatk5s9ZgK3WFWfkZhldHiSmpNQix"]
+        }
+
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_ON", "false"
+            // 是否开启内存溢出
+            buildConfigField "boolean", "LEAKCANARY_ON", "false"
+            //
+            debuggable false
+            //是否混淆代码
+            minifyEnabled true
+            //Zipalign优化
+            zipAlignEnabled true
+            //移除无用的resource文件
+            shrinkResources true
+            //打包的签名
+            signingConfig signingConfigs.release
+            //proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //buildConfigField "String", "BUGLY_KEY", '"7ed4ad09f6"' // BUGLY 的正式版KEY
+            //resValue "string", "app_name", "正式版"
+            //manifestPlaceholders = [BAIDUMAP_KEY: "Y4P4kvhVFc7Le7xGgIiRrcP8CZfIeThU"]
+        }
+    }
+
+
+    flavorDimensions "versionCode"
+
+    productFlavors {
+
+        online {
+            // 线上版 applicationId
+        }
+
+        project_template {
+            // 正式版 applicationId
+            //applicationId "com.jackylee.android.template.release"
+            // 在不改变你默认的程序ID（包名）的情况下，为其添加后缀
+            applicationIdSuffix ".release"
+        }
+        //#448aff
+        project_template_beta {
+            // 测试版 applicationId
+            //applicationId "com.jackylee.android.template.beta"
+            // 在不改变你默认的程序ID（包名）的情况下，为其添加后缀
+            applicationIdSuffix ".beta"
+        }
+        project_template_dev {
+            // 开发版 applicationId
+            //applicationId "com.jackylee.android.template.dev"
+            // 在不改变你默认的程序ID（包名）的情况下，为其添加后缀
+            applicationIdSuffix ".dev"
+        }
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    //为了解决部分第三方库重复打包了META-INF的问题
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+
+    lintOptions {
+        abortOnError false
+    }
+
+//    lintOptions {
+//        disable 'GoogleAppIndexingWarning'
+//        // junit references java.lang.management
+//        ignore 'InvalidPackage'
+//        check 'Interoperability'
+//    }
+
+//    lintOptions {
+//        // true--关闭lint报告的分析进度
+//        quiet true
+//        // true--错误发生后停止gradle构建
+//        abortOnError false
+//        // true--只报告error
+//        ignoreWarnings true
+//        // true--忽略有错误的文件的全/绝对路径(默认是true)
+//        //absolutePaths true
+//        // true--检查所有问题点，包含其他默认关闭项
+//        checkAllWarnings true
+//        // true--所有warning当做error
+//        warningsAsErrors true
+//        // 关闭指定问题检查
+//        disable 'TypographyFractions','TypographyQuotes'
+//        // 打开指定问题检查
+//        enable 'RtlHardcoded','RtlCompat', 'RtlEnabled'
+//        // 仅检查指定问题
+//        check 'NewApi', 'InlinedApi'
+//        // true--error输出文件不包含源码行号
+//        noLines true
+//        // true--显示错误的所有发生位置，不截取
+//        showAll true
+//        // 回退lint设置(默认规则)
+//        lintConfig file("default-lint.xml")
+//        // true--生成txt格式报告(默认false)
+//        textReport true
+//        // 重定向输出；可以是文件或'stdout'
+//        textOutput 'stdout'
+//        // true--生成XML格式报告
+//        xmlReport false
+//        // 指定xml报告文档(默认lint-results.xml)
+//        xmlOutput file("lint-report.xml")
+//        // true--生成HTML报告(带问题解释，源码位置，等)
+//        htmlReport true
+//        // html报告可选路径(构建器默认是lint-results.html )
+//        htmlOutput file("lint-report.html")
+//        //  true--所有正式版构建执行规则生成崩溃的lint检查，如果有崩溃问题将停止构建
+//        checkReleaseBuilds true
+//        // 在发布版本编译时检查(即使不包含lint目标)，指定问题的规则生成崩溃
+//        fatal 'NewApi', 'InlineApi'
+//        // 指定问题的规则生成错误
+//        error 'Wakelock', 'TextViewEdits'
+//        // 指定问题的规则生成警告
+//        warning 'ResourceAsColor'
+//        // 忽略指定问题的规则(同关闭检查)
+//        ignore 'TypographyQuotes'
+//    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation supportX.appcompat
+    implementation supportX.constraint
+    implementation supportX.multidex
+
+}
