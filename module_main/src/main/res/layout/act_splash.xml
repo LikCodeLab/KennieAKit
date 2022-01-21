@@ -4,33 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/_white"
+    android:background="@color/_res_white"
     android:orientation="vertical"
     tools:context=".SplashActivity">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/iv_splash_lottie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/_dp_40"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="false"
-            app:lottie_rawRes="@raw/android_logo" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/iv_splash_lottie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_res_dp_40"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/android_logo" />
 
 
-        <com.kennie.views.SlantedTextView2
-            android:id="@+id/tv_splash_version"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:colorBackground="@color/_material_red_700"
-            android:paddingHorizontal="@dimen/_dp_15"
-            android:paddingVertical="@dimen/_dp_10"
-            android:textColor="@color/_white"
-            android:textSize="@dimen/_sp_12"
-            android:textStyle="bold"
-            tools:text="DEBUG" />
+    <com.kennie.views.SlantedView
+        android:id="@+id/tv_splash_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:colorBackground="@color/_res_material_red_700"
+        android:paddingHorizontal="@dimen/_res_dp_15"
+        android:paddingVertical="@dimen/_res_dp_10"
+        android:textColor="@color/_res_white"
+        android:textSize="@dimen/_res_sp_12"
+        android:textStyle="bold"
+        app:sv_slantedMode="right"
+        app:sv_slantedText="DEBUG"
+        tools:text="DEBUG" />
 
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -38,12 +40,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginTop="@dimen/_dp_50"
-        android:layout_marginBottom="@dimen/_dp_30"
+        android:layout_marginTop="@dimen/_res_dp_50"
+        android:layout_marginBottom="@dimen/_res_dp_30"
         android:text="@string/app_name"
-        android:textColor="@color/_app_default_black"
-        android:textSize="@dimen/_sp_18"
-        android:textStyle="bold"
-        tools:ignore="HardcodedText" />
+        android:textColor="@color/_res_app_default_black"
+        android:textSize="@dimen/_res_sp_18"
+        android:textStyle="bold" />
 
 </FrameLayout>

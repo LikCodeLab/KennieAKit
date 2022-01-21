@@ -1,0 +1,25 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+apply from: "${rootDir}/configs/tools/gradle/app.gradle"
+
+android {
+
+    defaultConfig {
+        applicationId "com.kennie.example.notification"
+        versionCode 1
+        versionName "1.0"
+
+    }
+}
+
+dependencies {
+
+    implementation depK.core
+    implementation depX.appcompat
+    implementation depX.material
+    implementation kennieX.res
+    implementation project(':library_notification')
+}
