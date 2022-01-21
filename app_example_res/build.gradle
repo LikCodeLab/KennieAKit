@@ -1,15 +1,14 @@
 plugins {
-    id 'com.android.library'
+    id 'com.android.application'
     id 'kotlin-android'
 }
 
-apply from: "${rootDir}/configs/tools/gradle/library.gradle"
+apply from: "${rootDir}/configs/tools/gradle/app.gradle"
 
 android {
 
     defaultConfig {
-        versionCode 1
-        versionName "0.0.1"
+        applicationId "com.kennie.example.library"
     }
 
 }

@@ -25,7 +25,7 @@ dependencies {
     api project(':router')
     api project(':utils')
     // 内存泄漏监测框架：https://github.com/square/leakcanary
-    debugApi crashX.leakcanary
+    //debugApi crashX.leakcanary
 
     // MMKV
     //api 'com.tencent:mmkv:1.2.11'
@@ -36,5 +36,5 @@ dependencies {
     api imageX.glide_loader_recyclerview
     //annotationProcessor imageX.glide_compiler
 
-    //
+
 }

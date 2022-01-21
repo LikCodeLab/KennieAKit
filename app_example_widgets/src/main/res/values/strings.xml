@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Widgets</string>
+    <string name="app_name">演示Widgets</string>
 
     <string name="next">下一页</string>
     <string name="random">随机</string>
