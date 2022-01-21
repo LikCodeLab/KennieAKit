@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/_res_dp_10"
+    android:layout_marginVertical="@dimen/_res_dp_10"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <com.kennie.views.badge.BadgeImageView
+                android:id="@+id/badge_avatar"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:padding="@dimen/_res_dp_5"
+                android:src="@drawable/avatar_def"
+                app:badge_offsetX="-10.5dp"
+                app:badge_offsetY="10.5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/badge_author"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/badge_author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="TEST"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@id/badge_msg"
+                app:layout_constraintLeft_toRightOf="@id/badge_avatar"
+                app:layout_constraintRight_toLeftOf="@id/badge_badgeview"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/badge_msg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="TEST"
+                android:textColor="@color/_res_gray"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/badge_author"
+                app:layout_constraintRight_toRightOf="@id/badge_author"
+                app:layout_constraintTop_toBottomOf="@id/badge_author" />
+
+            <com.kennie.views.badge.BadgeView
+                android:id="@+id/badge_badgeview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:tag="TEST"
+                app:badge_background="@drawable/bg_badge_stroke_blue_black"
+                app:badge_textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/badge_author"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            style="@style/_res_Line_HorizontalStyle"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Switch
+                    android:id="@+id/swicth_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:padding="4dp"
+                    android:text="@string/bold"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@color/_res_gray" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@string/text_size"
+                    android:textColor="@color/black" />
+
+                <SeekBar
+                    android:id="@+id/sb_textsize"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:max="19"
+                    android:progress="11" />
+
+                <TextView
+                    android:id="@+id/tv_textsize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:minWidth="44dp"
+                    android:paddingRight="4dp"
+                    android:text="12SP"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!--偏移量-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:text="@string/offset"
+                android:textColor="@color/black" />
+
+            <!--偏移量：横-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@string/horizontal"
+                    android:textColor="@color/black" />
+
+                <SeekBar
+                    android:id="@+id/sb_offsetx"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:max="40"
+                    android:progress="21" />
+
+                <TextView
+                    android:id="@+id/tv_offsetx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:minWidth="44dp"
+                    android:paddingRight="4dp"
+                    android:text="0DP"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!--偏移量：纵-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@string/vertical"
+                    android:textColor="@color/black" />
+
+                <SeekBar
+                    android:id="@+id/sb_offsety"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:max="40"
+                    android:progress="21" />
+
+                <TextView
+                    android:id="@+id/tv_offsety"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:minWidth="44dp"
+                    android:paddingRight="4dp"
+                    android:text="0DP"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!--边距-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:text="@string/padding"
+                android:textColor="@color/black" />
+
+            <!--边距：左&上-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@string/left"
+                    android:textColor="@color/black" />
+
+                <SeekBar
+                    android:id="@+id/sb_paddingleft"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:max="10"
+                    android:progress="4" />
+
+                <TextView
+                    android:id="@+id/tv_paddingleft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:minWidth="40dp"
+                    android:text="4DP"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@color/_res_gray" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@string/top"
+                    android:textColor="@color/black" />
+
+                <SeekBar
+                    android:id="@+id/sb_paddingtop"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:max="10"
+                    android:progress="2" />
+
+                <TextView
+                    android:id="@+id/tv_paddingtop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:minWidth="44dp"
+                    android:paddingRight="4dp"
+                    android:text="2DP"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!--边距：右&下-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@string/right"
+                    android:textColor="@color/black" />
+
+                <SeekBar
+                    android:id="@+id/sb_paddingright"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:max="10"
+                    android:progress="4" />
+
+                <TextView
+                    android:id="@+id/tv_paddingright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:minWidth="40dp"
+                    android:text="4DP"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@color/_res_gray" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@string/bottom"
+                    android:textColor="@color/black" />
+
+                <SeekBar
+                    android:id="@+id/sb_paddingbottom"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:max="10"
+                    android:progress="2" />
+
+                <TextView
+                    android:id="@+id/tv_paddingbottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:minWidth="44dp"
+                    android:paddingRight="4dp"
+                    android:text="2DP"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:text="@string/gravity"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.kennie.widgets.example.RadioButton
+                    android:id="@+id/radio_gravityleft"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:lines="1"
+                    android:text="@string/gravity_left" />
+
+                <com.kennie.widgets.example.RadioButton
+                    android:id="@+id/radio_gravitytop"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:lines="1"
+                    android:text="@string/gravity_top" />
+
+                <com.kennie.widgets.example.RadioButton
+                    android:id="@+id/radio_gravityright"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:lines="1"
+                    android:text="@string/gravity_right" />
+
+                <com.kennie.widgets.example.RadioButton
+                    android:id="@+id/radio_gravitybottom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="@string/gravity_bottom" />
+
+                <com.kennie.widgets.example.RadioButton
+                    android:id="@+id/radio_gravitycenter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="@string/gravity_center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="4dp"
+                    android:text="Text："
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/et_badgetext"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:text="99+"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/button_hide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hide" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

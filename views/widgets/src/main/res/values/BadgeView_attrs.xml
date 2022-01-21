@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Badge">
+
+        <!-- 角标相对于View的对齐方式 -->
+        <attr name="badge_gravity">
+            <flag name="left" value="1" />
+            <flag name="top" value="2" />
+            <flag name="right" value="4" />
+            <flag name="bottom" value="8" />
+            <flag name="center" value="16" />
+        </attr>
+        <!--角标背景-->
+        <attr name="badge_background" format="reference|color" />
+        <!--角标边距-->
+        <attr name="badge_padding" format="reference|dimension" />
+        <!--角标左边距-->
+        <attr name="badge_paddingLeft" format="reference|dimension" />
+        <!--角标上边距-->
+        <attr name="badge_paddingTop" format="reference|dimension" />
+        <!--角标右边距-->
+        <attr name="badge_paddingRight" format="reference|dimension" />
+        <!--角标下边距-->
+        <attr name="badge_paddingBottom" format="reference|dimension" />
+
+        <!--角标横向偏移量-->
+        <attr name="badge_offsetX" format="reference|dimension" />
+        <!--角标纵向偏移量-->
+        <attr name="badge_offsetY" format="reference|dimension" />
+
+        <!--角标字体大小-->
+        <attr name="badge_textSize" format="reference|dimension" />
+        <!--角标字体颜色-->
+        <attr name="badge_textColor" format="reference|color" />
+        <!--文本加粗-->
+        <attr name="badge_boldText" format="boolean" />
+
+        <!--小圆点半径-->
+        <attr name="badge_dotRadius" format="reference|dimension" />
+
+    </declare-styleable>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>

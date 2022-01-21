@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Widgets</string>
+
+    <string name="next">下一页</string>
+    <string name="random">随机</string>
+    <string name="hide">隐藏</string>
+
+    <string name="loop">循环:</string>
+    <string name="rows">行数:</string>
+    <string name="spacing">行间距:</string>
+    <string name="dot_radius">圆点半径:</string>
+    <string name="text_size">字体大小:</string>
+    <string name="text_ratio">放大倍数:</string>
+    <string name="bold">加粗:</string>
+    <string name="offset">偏移量:</string>
+    <string name="horizontal">横:</string>
+    <string name="vertical">纵:</string>
+    <string name="padding">边距:</string>
+    <string name="left">左:</string>
+    <string name="top">上:</string>
+    <string name="right">右:</string>
+    <string name="bottom">下:</string>
+    <string name="width">宽:</string>
+    <string name="height">高:</string>
+    <string name="gridline">网格线:</string>
+    <string name="color">颜色:</string>
+    <string name="color_center">中部颜色:</string>
+    <string name="color_outside">外部颜色:</string>
+    <string name="gridcell">单元格:</string>
+    <string name="stickfirst">首行独占:</string>
+    <string name="parentwidth">容器宽:</string>
+    <string name="gravity">对齐方式:</string>
+
+    <string name="gravity_left">左</string>
+    <string name="gravity_top">上</string>
+    <string name="gravity_right">右</string>
+    <string name="gravity_bottom">下</string>
+    <string name="gravity_center">中</string>
+    <string name="gravity_fill">填满</string>
+
+</resources>

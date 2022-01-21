@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--属性集合-->
+    <declare-styleable name="SearchBoxView">
+        <!-- 输入框的hint属性 -->
+        <attr name="sbv_hint" format="string|reference" />
+        <!--清空图标-->
+        <attr name="sbv_ClearIcon" format="reference" />
+        <!--点击搜索后是否自动隐藏虚拟键盘-->
+        <attr name="sbv_EnableAutoHideSoftKey" format="boolean" />
+        <!--点击了清除按钮后是否清除EditText的焦点-->
+        <attr name="sbv_EnableClearFocusAfterSearch" format="boolean" />
+    </declare-styleable>
+
+</resources>

@@ -9,15 +9,13 @@ android {
 
     defaultConfig {
         versionCode 1
-        versionName "0.0.1"
+        versionName "1.0"
     }
-
 }
 
 dependencies {
-    api depK.core
-    api depX.appcompat
-    api depX.material
-    api depX.recyclerview
-    api project(':library_common')
+    implementation depK.core
+    implementation depX.appcompat
+    implementation depX.material
+    implementation kennieX.res
 }

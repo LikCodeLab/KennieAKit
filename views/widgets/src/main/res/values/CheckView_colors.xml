@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="checkview_bg_normal_color">#AAAAAA</color>
+    <color name="checkview_bg_checked_color">#EB4242</color>
+
+    <color name="checkview_border_normal_color">#AAAAAA</color>
+    <color name="checkview_border_checked_color">#2ABD5F</color>
+
+    <color name="checkview_tick_color">#2ABD5F</color>
+
+</resources>

@@ -8,15 +8,15 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import com.kennie.utils.AppIntentUtils;
-import com.kennie.utils.AppStoreUtils;
+import com.kennie.utils.core.AppIntentUtils;
+import com.kennie.utils.core.AppStoreUtils;
 import com.kennie.utils.core.DataUtils;
 import com.kennie.utils.core.FileUtils;
 import com.kennie.utils.core.RegexUtils;
-import com.kennie.utils.ScreenUtils;
 import com.kennie.utils.core.AppUtils;
 import com.kennie.utils.core.LogUtils;
 import com.kennie.utils.core.NotificationUtils;
+import com.kennie.utils.core.ScreenUtils;
 import com.kennie.utils.helper.PathHelper;
 import com.kennie.utils.helper.ToastHelper;
 

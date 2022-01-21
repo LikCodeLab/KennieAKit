@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 带线条的TextView -->
+    <declare-styleable name="LineTextView">
+        <!--线条宽度，默认：0dp-->
+        <attr name="ltv_line_size" format="dimension|reference" />
+        <!--线条颜色，默认：#000000-->
+        <attr name="ltv_line_color" format="color|reference" />
+        <!--线条间隔，该属性只在下划线风格中有效，默认：0dp-->
+        <attr name="ltv_line_interval" format="dimension|reference" />
+        <!--线条风格，默认：下划线-->
+        <attr name="ltv_line_style" format="enum">
+            <!--下划线模式-->
+            <enum name="underline" value="1" />
+            <!--中间删除线模式-->
+            <enum name="delete_middle" value="2" />
+            <!--对角删除线模式-->
+            <enum name="delete_oblique" value="3" />
+        </attr>
+    </declare-styleable>
+
+</resources>

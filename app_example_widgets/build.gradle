@@ -1,0 +1,23 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+apply from: "${rootDir}/configs/tools/gradle/app.gradle"
+
+android {
+    defaultConfig {
+        applicationId "com.kennie.widgets.example"
+    }
+
+}
+
+dependencies {
+    implementation depK.core
+    implementation depX.appcompat
+    implementation depX.material
+    implementation project(':base_project')
+    implementation project(':widgets')
+    implementation adapterX.BaseRecyclerViewAdapterHelper
+
+}

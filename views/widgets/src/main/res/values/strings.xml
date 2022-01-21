@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="_library_select_layout_search_hint_text">请输入名称或首字母查询</string>
+    <!-- CountDownTextView(验证码倒计时) -->
+    <string name="_countdown_textview_apply">%1$d %2$s</string>
+
+</resources>
