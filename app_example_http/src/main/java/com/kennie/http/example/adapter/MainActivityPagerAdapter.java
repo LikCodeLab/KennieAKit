@@ -1,4 +1,4 @@
-package com.kennie.example.lib.adapter;
+package com.kennie.http.example.adapter;
 
 import android.content.Context;
 
@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.kennie.example.lib.MainFragment;
-import com.kennie.example.lib.R;
+import com.kennie.http.example.MainFragment;
+import com.kennie.http.example.R;
 
 
 public class MainActivityPagerAdapter extends FragmentStatePagerAdapter {

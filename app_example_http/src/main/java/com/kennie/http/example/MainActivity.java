@@ -1,4 +1,4 @@
-package com.kennie.example.lib;
+package com.kennie.http.example;
 
 import android.os.Bundle;
 

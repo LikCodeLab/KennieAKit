@@ -13,30 +13,16 @@ dependencyResolutionManagement {
 rootProject.name = "KennieAKit"
 
 //************************演示项目 目录************************
-include ':app_example'
+include ':app_example_http'
 
 include ':app_lib'
 
 //************************模块 目录************************
 
 //************************公共库 目录************************
-include ':base_project'
-include ':library_common'
-project(':library_common').projectDir = new File('common/library_common')
-include ':utils'
-project(':utils').projectDir = new File('common/utils')
-// 项目 资源库
-include ':res'
-project(':res').projectDir = new File('common/res')
-// 项目 国际化库
-include ':i18n'
-project(':i18n').projectDir = new File('common/i18n')
-// 项目 路由管理库
-include ':router'
-project(':router').projectDir = new File('common/router')
+
 
 
 //************************自定义Views 目录************************
-include ':widgets'
-project(':widgets').projectDir = new File('views/widgets')
+
 include ':http_json'

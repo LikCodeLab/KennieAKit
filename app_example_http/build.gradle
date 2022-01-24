@@ -7,7 +7,7 @@ apply from: "${rootDir}/configs/tools/gradle/app.gradle"
 
 android {
     defaultConfig {
-        applicationId "com.kennie.example.lib"
+        applicationId "com.kennie.http.example"
         versionCode 100
         versionName "1.0.0"
         // 配合 productFlavors 节点按不同维度打包
