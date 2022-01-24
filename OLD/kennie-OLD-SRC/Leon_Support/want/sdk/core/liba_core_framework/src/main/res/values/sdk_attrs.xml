@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- application's content background-->
-    <attr name="base_background" format="color"/>
-</resources>
