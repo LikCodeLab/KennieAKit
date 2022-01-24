@@ -25,3 +25,4 @@ include ':app_example_http'
 //************************自定义Views 目录************************
 
 include ':http_json'
+include ':library_http'
