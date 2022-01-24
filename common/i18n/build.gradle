@@ -11,3 +11,7 @@ android {
         versionName "0.0.1"
     }
 }
+
+dependencies {
+    api kennieX.i18n
+}

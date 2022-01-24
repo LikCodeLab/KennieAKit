@@ -10,6 +10,5 @@ public abstract class BaseActivity extends AbstractActivity {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-
     }
 }
