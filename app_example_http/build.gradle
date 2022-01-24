@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 apply from: "${rootDir}/configs/tools/gradle/app.gradle"
@@ -21,9 +22,20 @@ android {
 }
 
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.31"
+
     implementation depK.core
     implementation depX.appcompat
     implementation depX.material
+    implementation kennieX.res
     implementation "me.relex:circleindicator:1.2.2@aar"
-    //implementation project(':base_project')
+    implementation project(':library_http')
+    implementation jsonX.gson
+
+    implementation httpX.okhttp3
+    implementation httpX.rxjava3
+    implementation httpX.rxandroid3
+    implementation httpX.retrofit
+    implementation httpX.retrofit_rxjava3_adapter
+    implementation httpX.retrofit_converter_gson
 }
