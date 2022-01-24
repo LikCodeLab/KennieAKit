@@ -18,4 +18,14 @@ dependencies {
     implementation depK.core
     implementation depX.appcompat
     implementation depX.material
+
+    implementation jsonX.gson
+
+    implementation httpX.okhttp3
+    implementation httpX.rxjava3
+    implementation httpX.rxandroid3
+    implementation httpX.retrofit
+    implementation httpX.retrofit_rxjava3_adapter
+    implementation httpX.retrofit_converter_gson
+
 }
